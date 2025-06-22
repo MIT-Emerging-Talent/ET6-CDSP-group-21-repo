@@ -4,34 +4,34 @@
 
 ---
 
-## 👤 What the User Says  
+## What the User Says  
 >
 > “What would I lose? I’ll apply and see how this goes!”
 
-## 💭 What the User Thinks  
+## What the User Thinks  
 >
 > “Can’t help it but set high hopes!”
 
-## 🛠️ What the User Does  
+## What the User Does  
 
 - Applies for the job  
 - Stays somewhat aware of scams  
 - May report the posting—if they realize it’s fake  
 
-## 💔 What the User Feels  
+## What the User Feels  
 
 - Excited and hopeful at first  
 - Then shocked, anxious, panicked, and discouraged  
 - May feel ashamed or embarrassed and choose to stay silent  
 
 Example:  
-🧪 Two case studies from the UK showed real applicants who were  
+Two case studies from the UK showed real applicants who were  
 excited by offers from “legit” companies—only to realize  
 they were scams mimicking trusted brands.
 
 ---
 
-## ❓ Editable Research Question  
+## Editable Research Question  
 
 > To what extent can job seekers and existing classifier models accurately  
 > detect fraudulent job postings crafted by advanced AI, and how do automated  
@@ -39,7 +39,7 @@ they were scams mimicking trusted brands.
 
 ---
 
-## 🔍 Sub-questions  
+## Sub-questions  
 
 - What features in job postings make users apply?  
 - Does knowing a post is LLM-generated change user trust?  
@@ -49,7 +49,7 @@ they were scams mimicking trusted brands.
 
 ---
 
-## 🔬 Aspects to Explore  
+## Aspects to Explore  
 
 - Feature engineering of job post text  
 - NLP + linguistic analysis across native & non-native speakers  
