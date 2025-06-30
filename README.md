@@ -74,12 +74,8 @@ aim to explore:
 
 ## **Our Research Question**
 
-<br>
-
 **Can humans still distinguish between legitimate and fraudulent job postings
 when the scam text is written by advanced AI models?**
-
-<br>
 
 To address this, we will also explore:
 
@@ -174,7 +170,7 @@ transparent digital job market.
 
 ---
 
-**About Us: The Hypatia Circle**
+### About Us: The Hypatia Circle
 
 We are The Hypatia Circle—a dedicated team of six women.
  United by a profound passion for data science and an
