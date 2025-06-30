@@ -1,10 +1,8 @@
-# Milestone 2 Retrospective
+# Milestone 2 Data Collection & Preparation
 
-## 🧩 Milestone 2 – Data Collection & Preparation
+## 🔁 Retrospective
 
-### 🔁 Retrospective
-
-#### ❌ Stop Doing
+### ❌ Stop Doing
 
 - Stressing too much about “perfect” datasets before even starting.  
 - Relying too much on one person for data cleaning.  
