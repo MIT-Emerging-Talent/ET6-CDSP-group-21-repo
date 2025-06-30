@@ -1,6 +1,6 @@
 # Datasets
 
-## Raw fake jobs
+## Raw Fake Jobs
 
 This dataset can be found in **Kaggle**, referred to as **_'Recruitment Scam
 Dataset'_**, or in
@@ -32,7 +32,7 @@ to use in the job board, organize it, refine it by Gemini, then use it to test
 humans' ability to detect if the job provided is legitimate or fraudulent when
 it's written by AI, since it mimics real job posts.
 
-## Processed fake jobs
+## Processed Fake Jobs
 
 The raw data was collected between **2012** and **2014**, before the development
 of AI, therefore, **_thirty_** fake job posts were randomly selected from **_raw
@@ -40,7 +40,7 @@ fake jobs_**
 file and used an algorithm to automatically refine them, using the Gemini API to
 generate AI-enhanced fraudulent postings.
 
-## Raw real jobs
+## Raw Real Jobs
 
 This dataset was manually collected by **_The Hypatia Circle_** group members.
 **_Thirty_** real job postings were collected from **_LinkedIn_** and **_Indeed_**.
@@ -49,7 +49,7 @@ Each entry in this dataset includes **_job title, company name, full job descrip
 
 This data is only internally available via the shared link.
 
-## Past relevant studies
+## Past Relevant Studies
 
 The research, **_Assessing AI vs Human-Authored Spear Phishing SMS Attacks: An
 Empirical Study_**, a **2025** study, was conducted by researchers at **_Brigham
