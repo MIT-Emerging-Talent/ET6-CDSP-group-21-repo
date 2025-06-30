@@ -1,94 +1,182 @@
-# Problem Domain
+# Detecting AI-Generated Job Scams: A Human and Machine Perspective
 
-Scam detection in digital job markets is a rising problem. It involves
-interactions between humans (job seekers, recruiters),
-systems (job boards, ATS tools), and malicious actors (scammers) who now
-leverage generative AI. Traditionally, detection relied heavily on linguistic
-cues and behavioral red flags like urgency, grammar issues, and fake domains,
-but AI is eroding those signals.
+![AI Scam Detection GIF](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExazMxc25uNmY3MmRkd3Z0cW11b2E4aXN2Zmxld2o5ZjI5Z2c3ZW5vYyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3JlYXRlZF90aW1lPTE2NjA2MjMyNDAmY3BpZD1lZTM4ZDZmNGNmYThkYjdmN2Q0NjgzYjQ3MzBiODExMiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/MBeHh0U30k5w59v9kH/giphy.gif)
 
-Our study sits at the intersection of **cybersecurity, human behavior, and NLP,**
-asking: What happens when scammers have access to the same tools used to detect them.
+---
 
-## Problem Statement
+## **Project Overview**
 
-***To What extent can job seekers and existing classifier models accurately
-detect fraudulent job postings crafted by advanced AI, and how does a *"scam
-score marker"* influence job seeker engagement with identified risks?***
+The digital job market faces a growing and complex challenge:
+**sophisticated fraudulent job postings crafted by advanced generative AI.**
+As scammers leverage powerful AI, traditional detection methods, based on
+linguistic cues and behavioral red flags, are increasingly failing.
 
-Despite advanced detection systems and widespread warnings, job scams aren’t
-just surviving, they’re thriving. According to the Federal Trade Commission,
-reported losses from **job opportunity scams totaled $750.6 million in 2024**,
-up nearly **$250 million from 2023**.
+Our study delves into the critical intersection of **cybersecurity**,
+**human behavior**, and **Natural Language Processing (NLP)**. We ask:
+*What happens when scammers have access to the same AI tools used to detect
+them?*
 
-In a recent job readiness workshop on June 12, 2025, attended by our
-[team](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/collaboration/README.md)
-and 94+ other students, nearly every attendee had encountered a fake job posting.
-This personal insight reflects a sobering national trend.
+This research is vital. According to the Federal Trade Commission, reported
+losses from job opportunity scams totaled **$750.6 million in 2024**, a
+nearly **$250 million increase from 2023**. These escalating figures
+highlight the urgent need for new defenses.
 
-> “The number of reports for job and employment agency scams tripled from 2020 to
-2024, and consumer losses jumped from $90 million to $501 million.” —
-[*Federal Trade Commission*](https://www.ftc.gov/news-events/news/press-releases/2025/03/new-ftc-data-show-big-jump-reported-losses-fraud-125-billion-2024#:~:text=People%20who%20report%20to%20ReportFraud,state%20broken%20down%20by%20age.)
+---
 
-These statistics raise an urgent question: Are AI-generated scam texts becoming
-so convincing that even experts and their tools can no longer reliably detect
-them? If true, this could signal the breakdown of existing scam detection models,
-and the need for a paradigm shift.
+## **Investigating the Problem: A Systems Perspective**
 
-## Systems Thinking Perspective
+We're dissecting the job scam problem through a systems thinking lens,
+examining it from observable events to underlying beliefs that perpetuate
+the cycle.
 
-We model this as a dynamic arms race involving three actors:
+### **Event: The Rise of Indistinguishable Scam Postings**
 
-1. **Scammers**, now equipped with LLMs capable of mimicking legitimate
-corporate language.
-2. **Detection systems**, often trained on outdated fraud signals or
-keyword-based heuristics.
-3. **Human users**, whose trust, judgment, and attention span are increasingly
-stretched thin.
+Scam job postings are surging, often *impossible to distinguish* from
+legitimate ones. People apply, share personal data, and even send payments—
+only to realize they've been tricked.
 
-This system is evolving. As generative AI improves, it may:
+### **Patterns and Trends: The Scammers' Playbook**
 
-- Erase the linguistic telltales traditionally used to flag fraud.
-- Exploit brand tone, corporate jargon, and trust signals with unnerving accuracy.
-- Render traditional classifiers obsolete unless rethought from the ground up.
+* **Common Tactics:** Upfront payment requests (e.g., for background
+    checks, training), psychological pressure (urgency, no interviews), and
+    using real employee names from LinkedIn.
+* **Most Impacted Groups:** Young professionals and job seekers under
+    financial stress.
+* **Growth Over Time:** Action Fraud UK received **4,876 scam job reports
+    in 2024** versus 2,094 in 2022 ([BBC source](https://www.bbc.com/news/business-68646460)).
 
-## Background Summary
+### **Structures Behind the Pattern: Exploiting Trust**
 
-Past research in scam detection has leaned heavily on:
+The job application process follows a predictable script. People expect to
+provide personal info and generally don't question the steps. Scammers
+exploit this trusted structure, meticulously mimicking real HR processes to
+gain credibility.
 
-- Linguistic feature engineering (e.g., urgency cues, poor grammar, spam words).
-- ML classification using bag-of-words, TF-IDF, or shallow embeddings.
-- User training and awareness-based campaigns.
+### **Mental Models Keeping the System in Place: Why Scams Endure**
 
-However, these methods rely on the assumption that fraudulent text will deviate
-in detectable ways from legitimate content. That assumption is **under threat**.
+* **Desperation Mindset:** “I need a job, I’ll try anything.”
+* **Shame Barrier:** Victims often stay silent or hesitate to warn others.
+* **Individual Blame:** The system often treats this as a personal mistake,
+    not a systemic vulnerability.
+* **Normalization of Risk:** “Scams are common—it’s just how things are
+    now.”
 
-## Our Research Question
+### **Gaps We Aim to Explore: Our Focus Areas**
 
-**Can LLM-generated scam job postings evade both human judgment and machine detection,
-and can real-time risk indicators effectively guide job seekers away from
-deceptive opportunities?**
+Despite ongoing efforts by platforms like LinkedIn, critical gaps remain. We
+aim to explore:
 
-This leads to sub-questions such as:
+* Can **LLM-generated scams** be flagged through better linguistic cues?
+* What happens when humans see a **scam score** before applying?
+* Are **existing detection tools** still relevant against generative AI?
 
-- How do real and AI-generated scams compare linguistically?
+---
 
-- Can humans detect LLM-generated scams better than machines—or vice versa?
+## **Our Research Question**
 
-- Are today’s best detection models still effective against LLM-generated
-scam text?
+<br>
 
-- How do job seekers react to the presence and prominence of an automated risk
-score on job postings, and how does this influence their likelihood of engaging
-with fraudulent opportunities?
+**Can humans still distinguish between legitimate and fraudulent job postings
+when the scam text is written by advanced AI models?**
 
-## Conclusion
+<br>
 
-Scam detection is no longer just about spam filters or “watch for typos.”
-It’s now a battle of AI vs AI, with humans caught in the middle. If current
-detection techniques are failing - because the threat has evolved - then the
-question isn’t just how to detect, but whether detection as we know it still works.
-Our goal is not just to build another model, but to stress-test the foundations
-of how we classify and catch job deceptions in the age of generative AI.
+To address this, we will also explore:
 
-[Link to our Background Research](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
+* How do real and AI-generated scams compare linguistically?
+* How do job seekers react to the presence and prominence of an automated
+    scam score or warning?
+
+---
+
+## Our Approach
+
+We are simulating the job application process through a survey to test job
+seekers' detection abilities. Our primary goal is to assess whether humans can
+reliably identify scams when presented with AI-generated job postings.
+
+### **Methodology & Data Collection**
+
+1. **Sample Selection:**
+    * **Collect Real Job Postings:** We'll curate a balanced set of
+        authentic postings from platforms like LinkedIn and Indeed. For each,
+        we'll include the job title, company, full description, and posting
+        link.
+    * **Collect & Refine Fake Job Postings:** We'll source fake postings
+        from public scam datasets. These will then be refined and modernized
+        using advanced AI models (e.g., GPT, Claude) to simulate realistic,
+        AI-written scam jobs.
+
+2. **Survey Interface:**
+    * Participants will be presented with job postings one by one.
+    * For each, they'll be asked to label it as **“Legitimate”** or
+        **“Scam.”**
+
+3. **Analysis Pipeline:**
+    * We will measure accuracy, false positives/negatives, and confidence
+        levels.
+    * Performance will be segmented by posting type (real vs. AI-generated)
+        and compared across various participant attributes.
+
+### **Possible Limitations**
+
+* Some "real" jobs might be undetected scams.
+* AI-crafted scams might lack full human-level subtlety.
+* Participant bias due to prior awareness of scams.
+
+---
+
+## **Data Collection & Preparation Pipeline**
+
+Our robust pipeline involves three key script-driven steps, designed for
+transparency and reproducibility:
+
+1. **Fake Jobs Extraction:** Extracts a diverse sample of fake job listings
+    from raw datasets.
+    * **Script**:
+        [`scripts/fake_jobs_extraction_script.ipynb`](./scripts/fake_jobs_extraction_script.ipynb)
+
+2. **Fake Jobs AI Refinement:** Uses LLMs (like Gemini, GPT, or Claude) to
+    rewrite selected fake jobs to sound more realistic and professional,
+    while maintaining their scam-like structure.
+    * **Script**:
+        [`scripts/fake_jobs_AIrefinement_script.ipynb`](./scripts/fake_jobs_AIrefinement_script.ipynb)
+
+3. **Real Jobs Cleaning:** Cleans and standardizes the real job postings
+    dataset.
+    * **Script**:
+        [`scripts/cleaned_real_jobs_script.ipynb`](./scripts/cleaned_real_jobs_script.ipynb)
+
+All our data preparation scripts and processed datasets are publicly
+hosted in this repo. For a **detailed breakdown** of the data flow,
+including input/output paths and dataset structure
+
+---
+
+## **Conclusion: Beyond Filters, a Battle of AIs**
+
+Scam detection is no longer just about spam filters or "watching for typos."
+It’s now fundamentally a battle of **AI versus AI**, with human job seekers
+caught in the middle. Our goal isn't just to build a better model, but to
+critically stress-test and rethink the foundational assumptions of how we
+classify and catch job deceptions in the age of generative AI. By pushing
+the boundaries of detection, we aim to contribute to a safer, more
+transparent digital job market.
+
+---
+
+## **Further Clarity & Our Team**
+
+* **🔍 Detailed Background Research & Domain Study:**
+    [Link to our Background Research](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
+* **💡 Project Planning & Documentation:**
+    [Clarity document](https://docs.google.com/document/d/1i1eVjbVNQgU_a4QyH9LMGibSnDSmWRm3lal7s9J1-GM/edit?tab=t.0)
+
+---
+
+**About Us: The Hypatia Circle**
+
+We are The Hypatia Circle—a dedicated team of six women.
+ United by a profound passion for data science and an
+unwavering belief in the transformative power of diverse collaboration, we
+strive to spark meaningful change and innovation.
