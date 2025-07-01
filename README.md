@@ -20,9 +20,8 @@ effective defensive strategies.
 
 ---
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Research+Question)](https://git.io/typing-svg)
-**CAN HUMANS STILL DISTINGUISH BETWEEN LEGITIMATE AND FRAUDULENT JOB POSTINGS**
-**WHEN THE SCAM TEXT IS WRITTEN BY ADVANCED AI MODELS?**
-
+**CAN HUMANS STILL DISTINGUISH BETWEEN LEGITIMATE AND FRAUDULENT JOB**
+**POSTINGS WHEN THE SCAM TEXT IS WRITTEN BY ADVANCED AI MODELS?**
 To address this crucial inquiry, we will also investigate:
 
 * How do genuine and AI-generated scam job postings compare linguistically?
