@@ -1,6 +1,6 @@
 # Collaboration
 
-We’re **The Hypatia Circle**, a team of five women from diverse ages, backgrounds,
+We’re **The Hypatia Circle**, a team of six women from diverse ages, backgrounds,
 and cultures, united by a shared understanding and a deep passion for utilizing
 computer science to create an environment where we can all belong and thrive
 together. We value creativity, openness to new perspectives, cooperation, and
