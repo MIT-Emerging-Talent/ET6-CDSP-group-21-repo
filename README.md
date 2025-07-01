@@ -1,163 +1,131 @@
-# Detecting AI-Generated Job Scams: A Human and Machine Perspective
+# [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4EFF&width=490&lines=DETECTING+AI-GENERATED+JOB+SCAMS;A+HUMAN+AND+MACHINE+PERSPECTIVE)](https://git.io/typing-svg)
 
-## **Project Overview**
+## Project Overview
 
-The digital job market faces a growing and complex challenge: **sophisticated
+The digital job market is facing an alarming rise in **sophisticated
 fraudulent job postings crafted by advanced generative AI.** As scammers
-leverage powerful AI, traditional detection methods, based on linguistic
-cues and behavioral red flags, are increasingly failing.
+increasingly leverage powerful AI, traditional detection methods—reliant
+on linguistic cues and behavioral red flags—are proving insufficient.
 
-Our study delves into the critical intersection of **cybersecurity**,
-**human behavior**, and **Natural Language Processing (NLP)**. We ask:
-*What happens when scammers have access to the same AI tools used to detect
-them?*
+Our study dives deep into the critical intersection of **cybersecurity**,
+**human behavior**, and **Natural Language Processing (NLP)**. We pose a
+fundamental question: *What happens when scammers have access to the same
+AI tools used to detect them?*
 
-This research is vital. According to the Federal Trade Commission, reported
-losses from job opportunity scams totaled **$750.6 million in 2024**, a
-nearly **$250 million increase from 2023**. These escalating figures
-highlight the urgent need for new defenses.
-
----
-
-## Investigating the Problem
-
-We’re dissecting the scam job crisis through real-world examples and emerging
-trends. For a detailed overview of scam patterns, case studies, and how they
-relate to human behavior and AI:
-
-[Read our Domain Study](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
+This research is profoundly vital. According to the Federal Trade
+Commission, reported losses from job opportunity scams soared to
+**$750.6 million in 2024**, marking a nearly **$250 million increase from
+2023**. These escalating figures underscore the urgent need for new,
+effective defensive strategies.
 
 ---
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Research+Question)](https://git.io/typing-svg)
+**CAN HUMANS STILL DISTINGUISH BETWEEN LEGITIMATE AND FRAUDULENT JOB POSTINGS**
+**WHEN THE SCAM TEXT IS WRITTEN BY ADVANCED AI MODELS?**
 
-## **Our Research Question**
+To address this crucial inquiry, we will also investigate:
 
-**Can humans still distinguish between legitimate and fraudulent job postings
-when the scam text is written by advanced AI models?**
-
-To address this, we will also explore:
-
-* How do real and AI-generated scams compare linguistically?
+* How do genuine and AI-generated scam job postings compare linguistically?
 * How do job seekers react to the presence and prominence of an automated
-    scam score or warning?
+    "scam score" or warning signal on job platforms?
 
 ---
 
-## **Methodology: A Simulated Job Board Experiment**
+## Our Approach: A Simulated Job Board Experiment
 
-Our approach involves a **simulated job board platform** designed to
-evaluate participants’ ability to distinguish between legitimate and
-fraudulent job postings. The primary focus is to assess whether AI-generated
-fraudulent posts are more or less detectable compared to those written by
-humans.
+We are building a **simulated job board** to test how well people can spot
+fake job ads, especially when those ads are created by advanced AI. We also
+want to see if a simple "scam warning" helps them.
 
-### **Data Collection**
+Here's our plan:
 
-* **Real Job Postings:** Sourced from LinkedIn, Indeed, and an existing
-    dataset containing both human- and AI-written job ads. These posts
-    will form our pool of legitimate examples.
-* **Fake Job Postings:** Obtained from a 2014 dataset containing 18,000
-    posts, 800 of which are labeled as fake. **Thirty** fake job posts were
-    randomly selected and automatically refined using the Gemini API to
-    generate AI-enhanced fraudulent postings, creating highly realistic scam
-    variants.
+### **1. Crafting Job Postings**
 
-### **Experimental Groups**
+* **Real Jobs:** We gather authentic job ads from top platforms like
+    LinkedIn and Indeed. These are our legitimate examples.
+* **AI-Enhanced Fake Jobs:** We take existing fake job ads and give them
+    to powerful AIs (like Gemini or GPT). These AIs rewrite them to sound
+    *highly realistic and professional*, but still contain subtle scam
+    elements.
 
-Participants will be randomly assigned to one of four groups, each exposed
-to different risk indicators on the simulated job board:
+### **2. Testing with Participants**
 
-* **Group A:** No risk indicators displayed.
-* **Group B:** A **‘scam score’** (e.g., a numerical rating) displayed.
-* **Group C:** A **‘warning sign’ icon** displayed.
-* **Group D:** A **‘warning text’** (e.g., "Potential Scam") displayed.
+* We'll recruit participants who are job seekers. They'll browse our
+    simulated job board.
+* Participants will be divided into **four groups**, each seeing a
+    different type of "scam warning" next to the job posts:
+  * **Group A:** No warnings.
+  * **Group B:** A "scam score" (e.g., 7/10 Scam Risk).
+  * **Group C:** A "warning sign" icon (e.g., ⚠️).
+  * **Group D:** A "warning text" (e.g., "Potential Scam").
+* For each job, they'll decide if it's "Legitimate" or "Scam," and tell
+    us how confident they are.
 
-### **Procedure**
+### **3. Analyzing Results**
 
-Participants will interact with the simulated job board, reviewing a
-randomized selection of job postings from each category (real/fake, human/AI-
-written). For each post, they will indicate whether they believe the job is
-legitimate or fraudulent. Their responses, along with response time,
-confidence level, and what affected their decision, will be recorded.
-
-### **Participants**
-
-Participants will be recruited via a Google Form distributed across various
-professional and social networks. The form will collect consent to
-participate and email addresses. Inclusion criteria include being over 18
-years old and having some experience with online job searching.
+* We'll compare how accurately each group spotted scams.
+* Crucially, we'll see if AI-written scams are harder to detect than
+    human-written ones.
+* We'll also learn if those "scam warnings" actually help job seekers avoid
+    fraud.
 
 ### **Ethical Considerations**
 
-All participants will provide informed consent before participating. They
-will also have the **option to withdraw at any time** without penalty. Data
-will be anonymized and stored securely. No personally identifiable
-information will be shared or published.
+All participants will provide informed consent, can withdraw anytime, and
+their data will be anonymized and kept secure.
 
-### **Data Analysis**
+### **Possible Limitations**
 
-Detection accuracy, confidence levels, and response times will be compared
-across the four groups and between human- and AI-generated posts. This
-analysis will determine if AI-written scams are easier or harder to detect
-and whether risk indicators effectively improve human detection.
+Our study might face limitations like some "real" jobs being undetected
+scams, AI-crafted scams not being perfectly human-like, or participant bias
+if they are already very scam-aware.
 
 ---
 
-## **Data Collection & Preparation Pipeline** ⚙️
+## Data Processing Pipeline
 
-Our robust pipeline involves three key script-driven steps, designed for
-transparency and reproducibility. These scripts process raw data into the
-refined datasets used in our experiment.
+Our robust pipeline prepares all the data needed for the experiment. It
+involves:
 
-1. **Fake Jobs Extraction:** Extracts a diverse sample of fake job listings
-    from raw datasets.
-    * **Script**:
-        [`2_data_preparation/fake_jobs_extraction_script.ipynb`](./2_data_preparation/fake_jobs_extraction_script.ipynb)
+* **Extracting Fake Jobs:** Selecting initial fake job listings.
+* **AI Refining Fake Jobs:** Using LLMs (like Gemini) to make fake jobs
+    super realistic.
+* **Cleaning Real Jobs:** Standardizing authentic job postings.
 
-2. **Fake Jobs AI Refinement:** Uses LLMs (like Gemini, GPT, or Claude) to
-    rewrite selected fake jobs to sound more realistic and professional,
-    while maintaining their scam-like structure.
-    * **Script**:
-        [`2_data_preparation/fake_jobs_AIrefinement_script.ipynb`](./2_data_preparation/fake_jobs_AIrefinement_script.ipynb)
-
-3. **Real Jobs Cleaning:** Cleans and standardizes the real job postings
-    dataset.
-    * **Script**:
-        [`2_data_preparation/cleaned_real_jobs_script.ipynb`](./2_data_preparation/cleaned_real_jobs_script.ipynb)
-
- All raw and processed data are stored in the
+All data is in the
 [`1_datasets`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/1_datasets)
-folder. For a **detailed breakdown** of the data flow, including input/output
-paths and dataset structure, please refer to the documentation within the
+folder. Scripts are in
 [`2_data_preparation`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/2_data_preparation)
-directory.
+for full transparency.
 
 ---
 
-## **Conclusion: Beyond Filters, a Battle of AIs**
+## Conclusion: Beyond Filters, a Battle of AIs
 
-Scam detection is no longer just about spam filters or "watching for typos."
-It’s now fundamentally a battle of **AI versus AI**, with human job seekers
-caught in the middle. Our goal isn't just to build a better model, but to
-critically stress-test and rethink the foundational assumptions of how we
-classify and catch job deceptions in the age of generative AI. By pushing
-the boundaries of detection, we aim to contribute to a safer, more
-transparent digital job market.
+Scam detection is no longer just about spotting typos. It’s a fundamental
+battle of **AI versus AI**, with human job seekers in the middle. Our goal
+is to stress-test how we classify deceptions in the age of generative AI,
+contributing to a safer digital job market.
 
 ---
 
-## **Further Clarity & Our Team**
+## Further Project Insights & Our Team
 
-* **Detailed Domain Study & Problem Analysis:**
-    [Link to our Domain Study](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
+* **Comprehensive Domain Study & Problem Analysis:**
+    [Dive Deeper Here](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
 
-* **Project Planning & Deliverables:**
-    [Link to our comprehensive Project Plan](https://docs.google.com/document/d/1i1eVjbVNQgU_a4QyH9LMGibSnDSmWRm3lal7s9J1-GM/edit?tab=t.0)
+* **Detailed Project Planning & Deliverables:**
+    [Access Our Project Plan](https://docs.google.com/document/d/1i1eVjbVNQgU_a4QyH9LMGibSnDSmWRm3lal7s9J1-GM/edit?tab=t.0)
 
 ---
 
-## About Us: The Hypatia Circle
+## The Hypatia Circle
 
-We are The Hypatia Circle—a dedicated team of six women from across Africa
-and the Middle East. United by a profound passion for data science and an
-unwavering belief in the transformative power of diverse collaboration, we
-strive to spark meaningful change and innovation.
+**The Hypatia Circle** — *"Reserve your right to think, for even to think
+wrongly is better than not to think at all."* — Hypatia of Alexandria
+
+We are The Hypatia Circle—a dedicated team of six women hailing from diverse
+backgrounds across Africa and the Middle East. United by a profound passion
+for data science and an unwavering belief in the transformative power of
+diverse collaboration, we strive to spark meaningful change and innovation
+in the world of data.
