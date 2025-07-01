@@ -149,11 +149,9 @@ transparent digital job market.
 
 * **Detailed Domain Study & Problem Analysis:**
     [Link to our Domain Study](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
-    *(This now contains the "Investigating the Problem: A Systems Perspective"
-    content.)*
+
 * **Project Planning & Deliverables:**
     [Link to our comprehensive Project Plan](https://docs.google.com/document/d/1i1eVjbVNQgU_a4QyH9LMGibSnDSmWRm3lal7s9J1-GM/edit?tab=t.0)
-    *(This now contains your detailed internal planning, milestones, and tasks.)*
 
 ---
 
