@@ -130,3 +130,5 @@ backgrounds across Africa and the Middle East. United by a profound passion
 for data science and an unwavering belief in the transformative power of
 diverse collaboration, we strive to spark meaningful change and innovation
 in the world of data.
+
+[Learn more about the team!](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/993536d48ceb618e12b753593098cbdb1f7b4df1/collaboration)
