@@ -1,4 +1,4 @@
-# [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4EFF&width=490&lines=DETECTING+AI-GENERATED+JOB+SCAMS;A+HUMAN+AND+MACHINE+PERSPECTIVE)](https://git.io/typing-svg)
+# Detecting AI-Generated Job Scams: A human and Machine Perspective
 
 ## Project Overview
 
@@ -20,8 +20,10 @@ effective defensive strategies.
 
 ---
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Research+Question)](https://git.io/typing-svg)
-CAN HUMANS STILL DISTINGUISH BETWEEN LEGITIMATE AND FRAUDULENT JOB
-**POSTINGS WHEN THE SCAM TEXT IS WRITTEN BY ADVANCED AI MODELS?**
+
+**Can humans still distinguish between legitimate and fraudulent job
+postings when the scam text is written by advanced AI models?**
+
 To address this crucial inquiry, we will also investigate:
 
 * How do genuine and AI-generated scam job postings compare linguistically?
