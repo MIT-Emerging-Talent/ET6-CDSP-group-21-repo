@@ -30,6 +30,9 @@ To address this crucial inquiry, we will also investigate:
 * How do job seekers react to the presence and prominence of an automated
     "scam score" or warning signal on job platforms?
 
+ **Comprehensive Domain Study & Problem Analysis:**
+    [Dive Deeper Here](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
+
 ---
 
 ## Our Approach: A Simulated Job Board Experiment
@@ -107,13 +110,6 @@ Scam detection is no longer just about spotting typos. It’s a fundamental
 battle of **AI versus AI**, with human job seekers in the middle. Our goal
 is to stress-test how we classify deceptions in the age of generative AI,
 contributing to a safer digital job market.
-
----
-
-## Further Project Insights & Our Team
-
-* **Comprehensive Domain Study & Problem Analysis:**
-    [Dive Deeper Here](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
 
 * **Detailed Project Planning & Deliverables:**
     [Access Our Project Plan](https://docs.google.com/document/d/1i1eVjbVNQgU_a4QyH9LMGibSnDSmWRm3lal7s9J1-GM/edit?tab=t.0)
