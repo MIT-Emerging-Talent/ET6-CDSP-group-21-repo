@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desperation Index</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+        }
+        .likert-option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        .likert-option input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen bg-gray-100 p-4">
+    <div class="bg-white p-8 rounded-lg shadow-xl w-full max-w-2xl">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Job Seeker Desperation Index</h2>
+        <p class="text-center text-gray-600 mb-8">Please answer the following questions honestly. Your responses will help us understand different job-seeking motivations.</p>
+
+        <form method="POST" action="{{ url_for('desperation_index') }}">
+            {% for i, question in questions %}
+                <div class="mb-8 p-4 border border-gray-200 rounded-md bg-gray-50">
+                    <p class="block text-gray-800 text-lg font-semibold mb-4">{{ i+1 }}. {{ question }}</p>
+                    <div class="flex flex-col space-y-2">
+                        <label class="likert-option">
+                            <input type="radio" name="q{{ i+1 }}" value="Strongly Disagree" required class="form-radio text-blue-600">
+                            <span>Strongly Disagree</span>
+                        </label>
+                        <label class="likert-option">
+                            <input type="radio" name="q{{ i+1 }}" value="Disagree" required class="form-radio text-blue-600">
+                            <span>Disagree</span>
+                        </label>
+                        <label class="likert-option">
+                            <input type="radio" name="q{{ i+1 }}" value="Neutral" required class="form-radio text-blue-600">
+                            <span>Neutral</span>
+                        </label>
+                        <label class="likert-option">
+                            <input type="radio" name="q{{ i+1 }}" value="Agree" required class="form-radio text-blue-600">
+                            <span>Agree</span>
+                        </label>
+                        <label class="likert-option">
+                            <input type="radio" name="q{{ i+1 }}" value="Strongly Agree" required class="form-radio text-blue-600">
+                            <span>Strongly Agree</span>
+                        </label>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="flex items-center justify-between mt-8">
+                <button type="submit"
+                        class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200 ease-in-out w-full">
+                    Submit Desperation Index
+                </button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+timestamp,user_id,group,q1_answer,q2_answer,q3_answer,q4_answer,q5_answer,desperation_score
+2025-07-01T20:25:21.897061,testuser1,A,Neutral,Strongly Agree,Strongly Agree,Agree,Agree,80
+2025-07-02T01:02:34.060870,testuser1,A,Neutral,Neutral,Disagree,Neutral,Neutral,45
+2025-07-02T06:49:38.043880,testuser1,A,Neutral,Neutral,Neutral,Neutral,Neutral,50
+2025-07-02T06:57:27.085820,testuser1,A,Neutral,Neutral,Neutral,Neutral,Neutral,50
+2025-07-02T06:59:47.305306,testuser1,A,Neutral,Neutral,Neutral,Neutral,Neutral,50
+2025-07-02T07:00:21.565024,testuser2,B,Neutral,Neutral,Neutral,Neutral,Neutral,50
+2025-07-02T07:07:30.864543,testuser1,A,Neutral,Neutral,Neutral,Neutral,Neutral,50
+2025-07-02T07:20:14.966749,testuser1,A,Neutral,Neutral,Neutral,Neutral,Neutral,50
+2025-07-02T09:58:22.945699,testuser1,A,Neutral,Neutral,Neutral,Neutral,Neutral,50
+2025-07-02T10:18:54.776950,testuser1,A,Agree,Agree,Agree,Agree,Agree,75
+2025-07-03T06:41:03.911827,testuser1,A,Neutral,Agree,Strongly Disagree,Disagree,Disagree,35
+2025-07-03T07:01:33.652424,testuser1,A,Neutral,Neutral,Neutral,Neutral,Neutral,50
+2025-07-03T07:04:29.706130,testuser1,A,Neutral,Neutral,Neutral,Neutral,Neutral,50
+2025-07-03T07:15:52.327605,testuser1,A,Neutral,Neutral,Neutral,Neutral,Agree,55
+2025-07-03T07:34:37.970449,testuser2,B,Agree,Agree,Agree,Neutral,Neutral,65
+2025-07-03T07:45:07.123890,testuser3,C,Agree,Agree,Agree,Agree,Neutral,70
+2025-07-03T07:47:10.150452,testuser4,D,Disagree,Disagree,Neutral,Disagree,Disagree,30
