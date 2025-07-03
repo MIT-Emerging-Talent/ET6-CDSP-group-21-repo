@@ -8,3 +8,4 @@ venv/
 .env
 .venv_datacleaning/
 *.ipynb_checkpoints
+venv_jobboard/
