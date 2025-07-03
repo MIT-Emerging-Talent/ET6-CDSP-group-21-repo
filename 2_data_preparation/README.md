@@ -7,7 +7,7 @@ training and evaluating models to detect fake job postings.
 
 ## Scripts Overview
 
-### [`fake_jobs_extraction_script.ipynb`](<https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/2_data_preparation/1_fake_jobs_extraction_script.ipynb>)
+### [`fake_jobs_extraction_script.ipynb`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/2_data_preparation/fake_jobs_AIrefinement_script.ipynb)
 
 **Purpose**: Extract a diverse sample of fake job listings from the raw dataset.
 
