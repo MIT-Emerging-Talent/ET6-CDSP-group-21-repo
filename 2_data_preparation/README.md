@@ -77,3 +77,10 @@ fake_jobs.csv
            |
            ▼
 llm_refined_30_fake_job_postings.csv
+
+
+```mermaid
+graph TD
+    A[Jobs] --> B[Raw Fake Jobs]
+    A --> C[Raw Real Jobs]
+```
