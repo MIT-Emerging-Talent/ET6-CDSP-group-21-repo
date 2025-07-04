@@ -78,3 +78,14 @@ timestamp,user_id,group,job_id,job_index_in_set,is_scam_response,scam_reason_tex
 2025-07-03T09:20:52.006295,testuser1,A,17818,13,no,,no,no,7
 2025-07-03T09:20:59.255471,testuser1,A,5870,14,no,,no,no,6
 2025-07-03T09:25:10.264419,testuser2,B,1250,0,no,,no,no,61
+2025-07-04T02:42:36.164380,testuser1,A,8691,2,,None,yes,no,13
+2025-07-04T02:43:41.313141,testuser1,A,17593,4,yes,,no,no,78
+2025-07-04T03:13:43.791261,testuser1,A,1257,0,yes,,no,no,13
+2025-07-04T03:13:50.971762,testuser1,A,17593,4,,None,yes,no,20
+2025-07-04T09:30:23.450359,testuser1,A,1257,0,yes,"Wording of posting (long vs short), Missing parts (e.g., contact info), I looked for the company online",no,no,58
+2025-07-04T09:31:14.277679,testuser1,A,17593,4,no,No visible red flags,no,no,109
+2025-07-04T09:31:33.744172,testuser1,A,1258,8,,,yes,no,128
+2025-07-04T09:36:59.985729,testuser2,B,1260,8,,,yes,no,63
+2025-07-04T09:38:10.269692,testuser2,B,1253,12,,,yes,no,133
+2025-07-04T09:38:50.932771,testuser2,B,1244,11,,,yes,no,174
+2025-07-04T09:44:03.638517,testuser3,C,1244,11,,,yes,no,133

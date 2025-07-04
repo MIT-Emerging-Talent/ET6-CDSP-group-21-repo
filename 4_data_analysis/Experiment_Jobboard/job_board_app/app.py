@@ -9,6 +9,7 @@ import os
 import csv
 from datetime import datetime
 from dotenv import load_dotenv
+import random
 
 
 # --- Flask App Initialization ---
@@ -25,6 +26,7 @@ app.secret_key = os.getenv("SECRET_KEY")
 USERS_FILE = 'users.csv'
 DESPERATION_RESULTS_FILE = 'desperation_results.csv'
 JOB_RESPONSES_FILE = 'job_responses.csv' # New file for job interaction data
+EXIT_SURVEY_RESULTS_FILE = 'exit_survey_results.csv' # New file for exit survey data
 
 # Data directory for job postings
 DATA_DIR = 'data'
@@ -56,6 +58,12 @@ if not os.path.exists(JOB_RESPONSES_FILE):
             'is_scam_response', 'scam_reason_text', 'applied_clicked', 'link_interacted',
             'time_on_job_page_seconds' # New metric to track
         ])
+
+# Ensure exit survey results CSV exists with headers
+if not os.path.exists(EXIT_SURVEY_RESULTS_FILE):
+    with open(EXIT_SURVEY_RESULTS_FILE, 'w', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(['timestamp', 'user_id', 'group', 'jobs_interacted_range', 'low_interaction_reasons', 'low_interaction_other_reason'])
 
 # --- Job Data Loading and Preparation ---
 all_jobs_df = pd.DataFrame()
@@ -103,6 +111,7 @@ try:
     job_set_A_fake = all_fake_jobs.sample(n=7, random_state=42)
     job_set_A_real = all_real_jobs.sample(n=8, random_state=42)
     job_set_A = pd.concat([job_set_A_fake, job_set_A_real], ignore_index=True).sample(frac=1, random_state=42).reset_index(drop=True)
+    job_set_A['job_id'] = job_set_A['job_id'].astype(str) # Ensure job_id is string
 
     # Remaining jobs for set BCD (e.g., 8 fake, 7 real - from those not in set A)
     remaining_fake_jobs = all_fake_jobs.drop(job_set_A_fake.index)
@@ -111,6 +120,7 @@ try:
     job_set_BCD_fake = remaining_fake_jobs.sample(n=8, random_state=42)
     job_set_BCD_real = remaining_real_jobs.sample(n=7, random_state=42)
     job_set_BCD = pd.concat([job_set_BCD_fake, job_set_BCD_real], ignore_index=True).sample(frac=1, random_state=42).reset_index(drop=True)
+    job_set_BCD['job_id'] = job_set_BCD['job_id'].astype(str) # Ensure job_id is string
 
     # Store these sets globally for access by the session
     app.config['JOB_SETS'] = {
@@ -135,6 +145,16 @@ DESPERATION_QUESTIONS = [
     "Are you willing to accept a job that is not your ideal role?",
     "Do you feel pressure to secure employment quickly?",
     "Are you likely to overlook minor red flags in a job posting if the pay is good?"
+]
+
+# --- Exit Survey Questions ---
+JOBS_INTERACTED_RANGES = ["Less than 5", "5-10", "11-15"]
+LOW_INTERACTION_REASONS = [
+    "Roles were not a fit",
+    "Salaries too low",
+    "I got bored or tired",
+    "Technical issues",
+    "Other"
 ]
 
 # Scoring for Likert scale (e.g., 1-5 where 5 is most desperate/high risk)
@@ -165,6 +185,8 @@ def login():
             # Store user info in session
             session['user_id'] = username
             session['group'] = user_match['group'].iloc[0] # Get the assigned group
+            # Initialize interacted_job_ids as a list for JSON serialization
+            session['interacted_job_ids'] = []
             print(f"User {username} logged in. Assigned to group: {session['group']}")
             return redirect(url_for('desperation_index'))
         else:
@@ -215,12 +237,11 @@ def desperation_index():
                 desperation_score
             ])
         print(f"Desperation index submitted for user {user_id} (Score: {desperation_score}).")
-        # --- TARGETED FIX: Re-set current_job_index just before redirect ---
-        # This ensures it's explicitly present in the session for the next request.
-        session['current_job_index'] = 0 
-        print(f"DEBUG: Session state BEFORE redirect to job_display: user_id={session.get('user_id')}, group={session.get('group')}, job_index={session.get('current_job_index')}")
-        # Redirect to the next part of the study (Day 2's job display)
-        return redirect(url_for('job_display')) # This route will be implemented on Day 2
+
+        # Initialize interacted_job_ids for tracking which jobs a user *has* interacted with (for disabling buttons)
+        session['interacted_job_ids'] = [] #set()
+        print(f"DEBUG: Session state BEFORE redirect to job_display: user_id={session.get('user_id')}, group={session.get('group')}, interacted_job_ids={session.get('interacted_job_ids')}")
+        return redirect(url_for('job_display'))
     
     # GET request: Display the form
     questions_with_index = list(enumerate(DESPERATION_QUESTIONS))
@@ -230,16 +251,17 @@ def desperation_index():
 @app.route('/job_display', methods=['GET', 'POST'])
 def job_display():
     """
-    Displays individual job postings and captures responses.
+    Displays all job postings for the user's group as a scrollable board.
+    Dynamically adds scam indicator based on group.
     """
     print(f"DEBUG: Entering job_display route. Current session: user_id={session.get('user_id')}, job_index={session.get('current_job_index')}")
-    if 'user_id' not in session or 'current_job_index' not in session:
+    if 'user_id' not in session: # or 'current_job_index' not in session:
         print("DEBUG: Session missing user_id or current_job_index in job_display, redirecting to login.")
         return redirect(url_for('login'))
 
     user_id = session['user_id']
     group = session['group']
-    current_job_index = session['current_job_index']
+    #current_job_index = session['current_job_index']
 
     # Determine which job set to use based on group
     if group == 'A':
@@ -247,80 +269,178 @@ def job_display():
     else: # Groups B, C, D
         job_set = app.config['JOB_SETS']['BCD']
 
-    # Check if there are jobs left to display
-    if current_job_index >= len(job_set):
-        # All jobs displayed, redirect to thank you page (Day 4)
-        print(f"DEBUG: All jobs displayed for user {user_id}, redirecting to thank_you.")
-        return redirect(url_for('thank_you')) # This route will be implemented on Day 4
+    # Deep copy to avoid modifying the global app.config directly
+    jobs_for_display = [job.copy() for job in job_set]
 
-    current_job = job_set[current_job_index]
+    # Retrieve interacted_job_ids as a set for efficient lookups
+    current_interacted_ids = set(session.get('interacted_job_ids', []))
 
-    if request.method == 'POST':
-        # Capture data from the current job interaction
-        is_scam_response = request.form.get('is_scam') # 'yes' or 'no'
-        scam_reason_text = request.form.get('scam_reason', '').strip()
-        applied_clicked = request.form.get('applied_clicked', 'no') # 'yes' or 'no'
-        link_interacted = request.form.get('link_interacted', 'no') # 'yes' or 'no'
-        time_on_page = request.form.get('time_on_page', '0') # Time in seconds
+    # --- Dynamic Scam Information Logic ---
+    for job in jobs_for_display:
+        is_scam = job.get('is_scam_job', False) # Default to False if missing
 
-        # Store job response
-        with open(JOB_RESPONSES_FILE, 'a', newline='') as f:
-            writer = csv.writer(f)
-            writer.writerow([
-                datetime.now().isoformat(),
-                user_id,
-                group,
-                current_job['job_id'],
-                current_job_index, # Index within their assigned set
-                is_scam_response,
-                scam_reason_text,
-                applied_clicked,
-                link_interacted,
-                time_on_page
-            ])
-        print(f"Job {current_job['job_id']} response recorded for user {user_id}.")
+        # Group A: Show "Is this a scam?" question
+        job['show_scam_question'] = (group == 'A')
+        
+        # Group B: Dynamic Scam Risk Score
+        if group == 'B':
+            if is_scam:
+                job['scam_risk_score'] = random.randint(58, 89) # High risk for fake jobs
+            else:
+                job['scam_risk_score'] = random.randint(1, 5)   # Low risk for real jobs
+        else:
+            job['scam_risk_score'] = None # Not applicable for other groups
 
-        # Increment job index and redirect to next job
-        session['current_job_index'] += 1
-        print(f"DEBUG: Session state AFTER job response and BEFORE redirect to next job: user_id={session.get('user_id')}, group={session.get('group')}, job_index={session.get('current_job_index')}")
-        return redirect(url_for('job_display'))
+        # Group C: Dynamic Scam Sign (Green/Red)
+        if group == 'C':
+            job['scam_sign_color'] = 'green' if not is_scam else 'red'
+            job['scam_sign_text'] = 'Legitimate Job' if not is_scam else 'Potential Scam Risk'
+        else:
+            job['scam_sign_color'] = None
+            job['scam_sign_text'] = None
 
-    # GET request: Display the current job
-    # Pass job data and group info to the template
-    print(f"DEBUG: Displaying job {current_job_index + 1} for user {user_id} in group {group}.")
+        # Group D: Dynamic Scam Warning Text
+        if group == 'D':
+            if is_scam:
+                job['scam_warning_text'] = "WARNING: This posting contains elements consistent with common scam patterns. Proceed with extreme caution."
+            else:
+                job['scam_warning_text'] = "There is always a risk of scam in job postings, proceed with caution."
+        else:
+            job['scam_warning_text'] = None
+            
+        # Add a flag to track if this job has been interacted with in the current session
+        #job['interacted'] = job['job_id'] in session.get('interacted_job_ids', set())
+
+        # Check if job has been interacted with in the current session (for disabling individual buttons)
+        job['interacted'] = job['job_id'] in current_interacted_ids
+
+    print(f"DEBUG: Displaying job board for user {user_id} in group {group}. Total jobs: {len(jobs_for_display)}")
+    print(f"DEBUG: Sample job (first) after processing: {jobs_for_display[0] if jobs_for_display else 'No jobs'}")
+
     return render_template(
-        'job_posting.html',
-        job=current_job,
-        group=group,
-        job_number=current_job_index + 1, # For display (1-indexed)
-        total_jobs=len(job_set)
+        'job_board.html',
+        jobs=jobs_for_display, # Pass the entire list of processed jobs
+        user_group=group,
+        #total_jobs_in_set=len(job_set)
     )
 
-@app.route('/track_interaction', methods=['POST'])
-def track_interaction():
+@app.route('/record_job_interaction', methods=['POST'])
+def record_job_interaction():
     """
-    Endpoint for JavaScript to send interaction data (like apply clicks, link clicks)
-    without submitting the main form.
+    AJAX endpoint to record user interactions with individual job tiles.
     """
-    print(f"DEBUG: Entering track_interaction route. Session user_id: {session.get('user_id')}")
+    print(f"DEBUG: Entering record_job_interaction route. Session user_id: {session.get('user_id')}")
     if 'user_id' not in session:
+        print("DEBUG: User not in session for record_job_interaction, returning 401.")
         return jsonify(success=False, message="Not logged in"), 401
 
     user_id = session['user_id']
     group = session['group']
-    job_id = request.json.get('job_id')
-    interaction_type = request.json.get('interaction_type') # e.g., 'apply_click', 'link_click'
-    
-    # You might want to log this to a separate, more detailed interaction log
-    # or find a way to update the existing job_responses.csv.
-    # For simplicity, we'll just print it for now.
-    print(f"User {user_id} in group {group} interacted with job {job_id}: {interaction_type}")
+    timestamp = datetime.now().isoformat()
 
-    # A more robust solution would update the specific row in job_responses.csv
-    # or log to a dedicated interaction file. For now, this is just a signal.
+    data = request.get_json() # Get JSON data from the AJAX request
+    job_id = str(data.get('job_id'))
+    interaction_type = data.get('interaction_type') # e.g., 'is_scam_yes', 'is_scam_no', 'applied', 'link_clicked'
     
+    # --- UPDATED: Handle scam_reason_text as a list of reasons ---
+    scam_reason_list = data.get('scam_reason_text', [])
+    if isinstance(scam_reason_list, list):
+        scam_reason_text = ", ".join(scam_reason_list) # Store as comma-separated string
+    else: # Fallback if it's somehow not a list
+        scam_reason_text = str(scam_reason_list).strip()
+    # --- END UPDATED ---
+    time_on_page_seconds = data.get('time_on_page_seconds', 0)
+
+    # Find the job_index_in_set for the current job_id
+    job_set_for_user = app.config['JOB_SETS']['A'] if group == 'A' else app.config['JOB_SETS']['BCD']
+    job_index_in_set = -1
+
+    # --- Debugging: Print job_ids for comparison ---
+    print(f"DEBUG: Received job_id from frontend: '{job_id}' (type: {type(job_id)})")
+    # Collect all job_ids in the user's set for debugging
+    all_set_job_ids = [job_item.get('job_id') for job_item in job_set_for_user]
+    print(f"DEBUG: Job IDs in user's set: {all_set_job_ids}")
+    # --- End Debugging ---
+
+    for idx, job_item in enumerate(job_set_for_user):
+        # Ensure comparison is between strings
+        if str(job_item.get('job_id')) == job_id:
+            job_index_in_set = idx
+            break
+    
+    if job_index_in_set == -1:
+        print(f"ERROR: Job ID {job_id} not found in user's job set.")
+        return jsonify(success=False, message="Job not found"), 400
+
+    # Retrieve, modify, and store interacted_job_ids as a list
+    interacted_job_ids_list = session.get('interacted_job_ids', [])
+    if job_id not in interacted_job_ids_list: # Check if already in list to avoid duplicates
+        interacted_job_ids_list.append(job_id)
+    session['interacted_job_ids'] = interacted_job_ids_list # Store back the list
+
+    # Log the interaction
+    with open(JOB_RESPONSES_FILE, 'a', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow([
+            timestamp,
+            user_id,
+            group,
+            job_id,
+            job_index_in_set,
+            'yes' if interaction_type == 'is_scam_yes' else ('no' if interaction_type == 'is_scam_no' else ''), # is_scam_response
+            scam_reason_text, # Will now be comma-separated string of reasons
+            'yes' if interaction_type == 'applied' else 'no', # applied_clicked
+            'yes' if interaction_type == 'link_clicked' else 'no', # link_interacted
+            time_on_page_seconds
+        ])
+    print(f"DEBUG: Recorded interaction '{interaction_type}' for job {job_id} by user {user_id}.")
+    print(f"DEBUG: Current interacted_job_ids in session: {session['interacted_job_ids']}")
+
     return jsonify(success=True)
 
+@app.route('/exit_survey', methods=['GET', 'POST'])
+def exit_survey():
+    """
+    Handles the post-study exit survey.
+    GET: Displays the survey questions.
+    POST: Processes answers and stores results.
+    """
+    print(f"DEBUG: Entering exit_survey route. Session user_id: {session.get('user_id')}")
+    if 'user_id' not in session:
+        print("DEBUG: User not in session, redirecting to login from exit_survey.")
+        return redirect(url_for('login'))
+
+    if request.method == 'POST':
+        user_id = session['user_id']
+        group = session['group']
+        timestamp = datetime.now().isoformat()
+
+        jobs_interacted_range = request.form.get('jobs_interacted_range')
+        low_interaction_reasons = request.form.getlist('low_interaction_reasons') # getlist for multiple checkboxes
+        low_interaction_other_reason = request.form.get('low_interaction_other_reason', '').strip()
+
+        # Convert list of reasons to a comma-separated string for CSV
+        low_interaction_reasons_str = ", ".join(low_interaction_reasons)
+
+        with open(EXIT_SURVEY_RESULTS_FILE, 'a', newline='') as f:
+            writer = csv.writer(f)
+            writer.writerow([
+                timestamp,
+                user_id,
+                group,
+                jobs_interacted_range,
+                low_interaction_reasons_str,
+                low_interaction_other_reason
+            ])
+        print(f"DEBUG: Exit survey submitted for user {user_id}.")
+        return redirect(url_for('thank_you'))
+
+    # GET request: Display the form
+    return render_template(
+        'exit_survey.html',
+        jobs_interacted_ranges=JOBS_INTERACTED_RANGES,
+        low_interaction_reasons=LOW_INTERACTION_REASONS
+    )
 
 @app.route('/thank_you')
 def thank_you():

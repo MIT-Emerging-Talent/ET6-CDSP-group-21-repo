@@ -1,0 +1,4 @@
+timestamp,user_id,group,jobs_interacted_range,low_interaction_reasons,low_interaction_other_reason
+2025-07-04T09:33:30.873815,testuser1,A,Less than 5,"Roles were not a fit, I got bored or tired",
+2025-07-04T09:40:15.370935,testuser2,B,Less than 5,Other,i onlywent for the jobs with very low scam risk.
+2025-07-04T09:45:01.733157,testuser3,C,Less than 5,Roles were not a fit,

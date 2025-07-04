@@ -20,3 +20,18 @@ timestamp,user_id,group,q1_answer,q2_answer,q3_answer,q4_answer,q5_answer,desper
 2025-07-03T09:24:07.969283,testuser2,B,Neutral,Neutral,Disagree,Neutral,Agree,50
 2025-07-03T09:28:59.481195,testuser3,C,Neutral,Agree,Agree,Strongly Agree,Agree,75
 2025-07-03T09:32:04.113768,testuser4,D,Agree,Agree,Strongly Disagree,Strongly Disagree,Neutral,40
+2025-07-03T22:44:22.050405,testuser1,A,Neutral,Disagree,Strongly Disagree,Agree,Neutral,40
+2025-07-03T23:03:26.396577,testuser1,A,Disagree,Strongly Disagree,Neutral,Agree,Strongly Agree,50
+2025-07-03T23:23:03.496603,testuser2,B,Neutral,Strongly Disagree,Strongly Disagree,Strongly Agree,Agree,45
+2025-07-03T23:35:01.293860,testuser3,C,Disagree,Strongly Disagree,Disagree,Strongly Disagree,Disagree,15
+2025-07-03T23:36:58.565015,testuser4,D,Strongly Disagree,Strongly Disagree,Strongly Agree,Strongly Agree,Disagree,45
+2025-07-03T23:50:49.796343,testuser1,A,Strongly Disagree,Strongly Disagree,Strongly Disagree,Neutral,Neutral,20
+2025-07-04T01:24:04.217612,testuser1,A,Strongly Agree,Agree,Agree,Agree,Disagree,70
+2025-07-04T01:39:50.055583,testuser1,A,Disagree,Strongly Disagree,Agree,Agree,Disagree,40
+2025-07-04T01:43:27.397008,testuser1,A,Strongly Disagree,Disagree,Strongly Disagree,Neutral,Disagree,20
+2025-07-04T01:48:41.606821,testuser1,A,Disagree,Strongly Disagree,Strongly Disagree,Strongly Disagree,Strongly Disagree,5
+2025-07-04T02:42:22.839631,testuser1,A,Disagree,Strongly Disagree,Disagree,Disagree,Strongly Disagree,15
+2025-07-04T03:13:30.527386,testuser1,A,Disagree,Strongly Disagree,Neutral,Strongly Agree,Neutral,45
+2025-07-04T09:29:24.917891,testuser1,A,Strongly Disagree,Strongly Disagree,Strongly Disagree,Strongly Disagree,Strongly Disagree,0
+2025-07-04T09:35:56.478936,testuser2,B,Agree,Agree,Strongly Agree,Strongly Agree,Neutral,80
+2025-07-04T09:41:49.908995,testuser3,C,Agree,Agree,Agree,Strongly Agree,Disagree,70
