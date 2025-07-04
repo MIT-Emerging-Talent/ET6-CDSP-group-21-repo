@@ -57,30 +57,24 @@ realistic and professional while maintaining a scam-like structure.
 
 ---
 
-## Data Flow Diagram
-
-```text
-RAW FAKE JOBS                         RAW REAL JOBS
----------------------                ---------------------
-| fake_job_postings.csv |            | real_jobs.csv       |
----------------------                ---------------------
-           |                                  |
-           ▼                                  ▼
-1_fake_jobs_extraction.ipynb        3_real_jobs_cleaning.ipynb
-           |                                  |
-           ▼                                  ▼
-originally_selected_30_             cleaned_real_jobs.csv
-fake_jobs.csv
-           |
-           ▼
-2_fake_jobs_AIrefinement.ipynb
-           |
-           ▼
-llm_refined_30_fake_job_postings.csv
-
-
 ```mermaid
 graph TD
     A[Jobs] --> B[Raw Fake Jobs]
     A --> C[Raw Real Jobs]
+    B --> D[fake_job_postings.csv]
+    C --> E[real_jobs.csv]
+    D -->F[fake_jobs_extraction.ipynb
+                 ↓
+    originally_selected_30_fake_jobs.csv
+                 ↓
+           fake_jobs_AIrefinement.ipynb
+                 ↓
+    llm_refined_30_fake_job_postings.csv
+  ]
+  E --> G[real_jobs_cleaning.ipynb
+                 ↓
+           cleaned_real_jobs.csv
+  ]
 ```
+
+This graph demonstrates and summarizes the data cleaning process.
