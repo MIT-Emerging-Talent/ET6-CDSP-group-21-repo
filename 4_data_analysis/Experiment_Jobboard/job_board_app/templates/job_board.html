@@ -74,12 +74,14 @@
             background-color: #d1d5db; /* Darker light gray */
             transform: translateY(-1px);
         }
+        /* Adjusted scam-warning for general use and Group D specific */
         .scam-warning {
-            padding: 0.75rem 1.25rem;
-            border-radius: 8px;
+            padding: 0.5rem 0.75rem; /* Slightly smaller padding */
+            border-radius: 6px; /* Slightly less rounded */
             font-weight: 600;
-            margin-top: 1rem;
+            margin-top: 0.75rem; /* Slightly smaller margin */
             color: white;
+            font-size: 0.875rem; /* text-sm */
         }
         .scam-warning.red {
             background-color: #ef4444; /* Red */
@@ -88,9 +90,9 @@
             background-color: #22c55e; /* Green */
         }
         .scam-risk-score {
-            font-size: 1.125rem; /* text-lg */
+            font-size: 1rem; /* text-base, slightly smaller than text-lg */
             font-weight: 700; /* font-bold */
-            margin-top: 1rem;
+            margin-top: 0.75rem; /* Adjusted margin */
             color: #1f2937; /* Dark text */
         }
         .interaction-buttons button:disabled {
@@ -116,18 +118,35 @@
         .scam-reason-options input[type="checkbox"] {
             margin-right: 0.5rem;
         }
+
+        /* NEW: Styles for the triangle icon for Group C */
+        .scam-triangle-icon {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent; /* Adjust size as needed */
+            border-right: 10px solid transparent; /* Adjust size as needed */
+            border-bottom: 18px solid; /* Height of the triangle, color set by .red/.green */
+            margin-top: 0.5rem; /* Adjusted margin to align with other indicators */
+            margin-bottom: 0.5rem;
+        }
+        .scam-triangle-icon.red {
+            border-bottom-color: #ef4444; /* Red */
+        }
+        .scam-triangle-icon.green {
+            border-bottom-color: #22c55e; /* Green */
+        }
     </style>
 </head>
 <body class="p-8">
     <div class="max-w-7xl mx-auto"> {# Increased max-width to accommodate 3 columns #}
         <h1 class="text-4xl font-bold text-gray-800 mb-8 text-center">Job Board</h1>
-        <p class="text-lg text-gray-600 mb-8 text-center">
-            Welcome, {{ session['user_id'] }} (Group {{ user_group }}). Scroll through the jobs below and interact with them.
+        <p class="text-lg text-gray-600 mb-8 text-center font-bold">
+            Welcome, {{ session['user_id'] }} (Group {{ user_group }}). Scroll through the jobs below and interact with them. You can click "Apply" to apply for a job, "View Link" to visit job's link. Please pay attention to any additional information or indicators that may appear on job postings, as they might provide insights into the job's characteristics. You can click "Finish Study" at any time to complete the study.
         </p>
 
         <div id="job-list" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"> {# Grid layout classes #}
             {% for job in jobs %}
-            <div id="job-card-{{ job.job_id }}" class="job-card" data-job-id="{{ job.job_id }}" data-interacted="{{ 'true' if job.interacted else 'false' }}">
+            <div id="job-card-{{ job.job_id }}" class="job-card" data-job-id="{{ job.job_id }}" data-interacted="{{ 'true' if job.interacted else 'false' }}" data-is-scam-job="{{ 'true' if job.is_scam_job else 'false' }}">
                 <h2 class="text-xl font-bold text-gray-900 mb-1">{{ job.job_title }}</h2> {# Slightly smaller title #}
                 <p class="text-md text-gray-700 mb-1">{{ job.company_name }}</p>
                 {% if job.salary_info %}
@@ -135,27 +154,20 @@
                 {% endif %}
 
                 {# Scam indicator for groups B, C, D (always visible if applicable) #}
-                {# NOTE: Your app.py uses 'is_scam_true' which is fine here. #}
                 {% if user_group == 'B' and job.scam_risk_score is not none %}
                 <div class="scam-risk-score-section">
-                    <p class="scam-risk-score text-md">Scam Risk Score: {{ job.scam_risk_score }}%</p>
+                    <p class="scam-risk-score">Scam Risk Score: {{ job.scam_risk_score }}%</p>
                 </div>
                 {% elif user_group == 'C' and job.scam_sign_color %}
-                <div class="scam-sign-section">
-                    <p class="scam-warning {{ job.scam_sign_color }} text-sm">{{ job.scam_sign_text }}</p>
-                </div>
-                {% elif user_group == 'D' and job.scam_warning_text %}
-                <div class="scam-warning-section">
-                    {# NOTE: Your app.py uses 'is_scam_true' which is fine here. #}
-                    <p class="scam-warning {% if job.is_scam_true %}red{% else %}green{% endif %} text-sm">{{ job.scam_warning_text }}</p>
+                {# MODIFIED: Group C now displays a triangle icon without text #}
+                <div class="scam-sign-section flex justify-center items-center">
+                    <div class="scam-triangle-icon {{ job.scam_sign_color }}"></div>
                 </div>
                 {% endif %}
 
                 <div class="job-description" id="desc-{{ job.job_id }}">
-                    {# This uses job.job_description as per your app.py #}
                     {{ job.job_description | safe }}
                 </div>
-                {# This uses job.job_description as per your app.py #}
                 {% if job.job_description and job.job_description | length > 150 %}
                     <button class="read-more-button" data-target="desc-{{ job.job_id }}" data-job-id="{{ job.job_id }}">Read More</button>
                 {% endif %}
@@ -168,12 +180,10 @@
                         <p class="text-md font-semibold text-gray-800 mb-1">Do you think this is a scam job?</p>
                         <div class="flex items-center space-x-3 mb-1">
                             <label class="inline-flex items-center">
-                                {# FIX: Added 'is-scam-radio' class #}
                                 <input type="radio" class="form-radio text-blue-600 is-scam-radio" name="is_scam_{{ job.job_id }}" value="yes" data-job-id="{{ job.job_id }}" {% if job.interacted %}disabled{% endif %}>
                                 <span class="ml-1 text-gray-700 text-sm">Yes</span>
                             </label>
                             <label class="inline-flex items-center">
-                                {# FIX: Added 'is-scam-radio' class #}
                                 <input type="radio" class="form-radio text-blue-600 is-scam-radio" name="is_scam_{{ job.job_id }}" value="no" data-job-id="{{ job.job_id }}" {% if job.interacted %}disabled{% endif %}>
                                 <span class="ml-1 text-gray-700 text-sm">No</span>
                             </label>
@@ -183,8 +193,8 @@
                         <div id="scam-reasons-{{ job.job_id }}" class="scam-reason-options hidden">
                             <p class="text-sm font-medium text-gray-700 mb-2">Why?</p>
                             <label class="text-sm text-gray-700">
-                                <input type="checkbox" name="scam_reason_option_{{ job.job_id }}" value="Wording of posting (long vs short)" class="form-checkbox text-blue-600" {% if job.interacted %}disabled{% endif %}>
-                                Wording of posting (long vs short)
+                                <input type="checkbox" name="scam_reason_option_{{ job.job_id }}" value="Wording of posting (What was suspicious? please specify in the 'other' textbox below)" class="form-checkbox text-blue-600" {% if job.interacted %}disabled{% endif %}>
+                                Wording of posting (What was suspicious? please specify in the "other" texbox below)
                             </label>
                             <label class="text-sm text-gray-700">
                                 <input type="checkbox" name="scam_reason_option_{{ job.job_id }}" value="Salary doesn't match description" class="form-checkbox text-blue-600" {% if job.interacted %}disabled{% endif %}>
@@ -195,8 +205,8 @@
                                 Missing parts (e.g., contact info)
                             </label>
                             <label class="text-sm text-gray-700">
-                                <input type="checkbox" name="scam_reason_option_{{ job.job_id }}" value="I looked for the company online" class="form-checkbox text-blue-600" {% if job.interacted %}disabled{% endif %}>
-                                I looked for the company online
+                                <input type="checkbox" name="scam_reason_option_{{ job.job_id }}" value="Not Familiar with the company" class="form-checkbox text-blue-600" {% if job.interacted %}disabled{% endif %}>
+                                Not Familiar with the company
                             </label>
                              <label class="text-sm text-gray-700">
                                 <input type="checkbox" name="scam_reason_option_{{ job.job_id }}" value="No visible red flags" class="form-checkbox text-blue-600" {% if job.interacted %}disabled{% endif %}>
@@ -211,6 +221,13 @@
                         <button class="button-primary mt-3 submit-scam-response w-full text-sm" data-job-id="{{ job.job_id }}" {% if job.interacted %}disabled{% endif %}>Submit Opinion</button>
                     </div>
                     {% endif %}
+                    
+                    {% if user_group == 'D' and job.scam_warning_text %}
+                    {# MODIFIED: Group D now plain text with light gray background and padding #}
+                    <div class="scam-warning-section bg-gray-100 p-2 rounded-md mt-2">
+                        <p class="text-gray-700 text-sm">{{ job.scam_warning_text }}</p>
+                    </div>
+                    {% endif %}
 
                     <div class="interaction-buttons flex space-x-2 mt-4"> {# Buttons now horizontal #}
                         <button class="button-primary apply-button w-1/2" data-job-id="{{ job.job_id }}" {% if job.interacted %}disabled{% endif %}>Apply</button>
@@ -222,22 +239,15 @@
         </div>
 
         <div class="text-center mt-8">
-            {# FIX: Removed 'disabled' attribute #}
             <button id="finish-study-button" class="button-primary px-8 py-4 text-xl">
                 Finish Study
             </button>
-            {# Removed text showing interaction count, as button is always enabled #}
         </div>
     </div>
 
     <script>
         // Store the current time when the page loads for time_on_page tracking
         const pageLoadTime = Date.now();
-
-        // FIX: Removed totalJobsInSet and updateFinishButton as they are no longer needed
-        // const totalJobsInSet = parseInt("{{ total_jobs_in_set }}") || 0; 
-        // console.log('totalJobsInSet:', totalJobsInSet, typeof totalJobsInSet);
-        // function updateFinishButton() { /* ... removed ... */ }
 
         // Function to mark a job card as interacted and disable its controls
         function markJobAsInteracted(jobId) {
@@ -254,16 +264,44 @@
                 jobCard.style.transform = 'none'; // Remove hover effect
                 jobCard.style.opacity = '0.7'; // Slight fade
             }
-            // No longer calling updateFinishButton() here
         }
+
+        // AJAX function to send interaction data
+        // UPDATED: Added isScamJobActual parameter
+        async function sendInteraction(jobId, interactionType, scamReasonText = [], timeOnPageSeconds = 0, isScamJobActual = null) {
+            try {
+                const response = await fetch('/record_job_interaction', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        job_id: jobId,
+                        interaction_type: interactionType,
+                        scam_reason_text: scamReasonText, // Now sends an array
+                        time_on_page_seconds: timeOnPageSeconds,
+                        is_scam_job_actual: isScamJobActual // NEW: Send actual scam status
+                    }),
+                });
+
+                const data = await response.json();
+                if (data.success) {
+                    console.log(`Interaction recorded: ${interactionType} for job ${jobId}`);
+                } else {
+                    console.error('Failed to record interaction:', data.message);
+                }
+            } catch (error) {
+                console.error('Error sending interaction data:', error);
+            }
+        }
+
 
         // Event Listeners for Interaction Buttons
         document.querySelectorAll('.apply-button').forEach(button => {
             button.addEventListener('click', function() {
                 const jobId = this.dataset.jobId;
                 const timeSpent = Math.round((Date.now() - pageLoadTime) / 1000); // Time in seconds
-                // FIX: Pass empty array for scamReasonText
-                sendInteraction(jobId, 'applied', [], timeSpent); 
+                sendInteraction(jobId, 'applied', [], timeSpent); // Empty array for reasons
                 markJobAsInteracted(jobId);
             });
         });
@@ -272,8 +310,7 @@
             button.addEventListener('click', function() {
                 const jobId = this.dataset.jobId;
                 const timeSpent = Math.round((Date.now() - pageLoadTime) / 1000); // Time in seconds
-                // FIX: Pass empty array for scamReasonText
-                sendInteraction(jobId, 'link_clicked', [], timeSpent); 
+                sendInteraction(jobId, 'link_clicked', [], timeSpent); // Empty array for reasons
                 markJobAsInteracted(jobId);
             });
         });
@@ -326,7 +363,6 @@
             });
         });
 
-        // {# FIX: Re-added event listener for Yes/No radio buttons to show/hide scam reason options #}
         document.querySelectorAll('.is-scam-radio').forEach(radio => {
             radio.addEventListener('change', function() {
                 const jobId = this.dataset.jobId;
@@ -371,7 +407,6 @@
             });
         });
 
-        // {# FIX: Re-added event listener for "Other" checkbox to show/hide text area #}
         document.querySelectorAll('.other-reason-checkbox').forEach(checkbox => {
             checkbox.addEventListener('change', function() {
                 const jobId = this.dataset.jobId;
@@ -411,44 +446,13 @@
             });
         });
 
-        // AJAX function to send interaction data
-        async function sendInteraction(jobId, interactionType, scamReasonText = [], timeOnPageSeconds = 0) {
-            try {
-                const response = await fetch('/record_job_interaction', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        job_id: jobId,
-                        interaction_type: interactionType,
-                        scam_reason_text: scamReasonText, // Now sends an array
-                        time_on_page_seconds: timeOnPageSeconds
-                    }),
-                });
-
-                const data = await response.json();
-                if (data.success) {
-                    console.log(`Interaction recorded: ${interactionType} for job ${jobId}`);
-                } else {
-                    console.error('Failed to record interaction:', data.message);
-                }
-            } catch (error) {
-                console.error('Error sending interaction data:', error);
-            }
-        }
 
         // Event listener for the "Finish Study" button
         document.getElementById('finish-study-button').addEventListener('click', function() {
-            // FIX: Redirect to the exit survey page
             console.log('Finish Study button clicked. Redirecting to /exit_survey'); // Debugging
             window.location.href = '/exit_survey';
         });
 
-        // FIX: Removed the updateFinishButton call as it's no longer needed
-        // document.addEventListener('DOMContentLoaded', updateFinishButton);
-
-        // Mark jobs that were already interacted with (on page load if session persists)
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('.job-card').forEach(card => {
                 if (card.dataset.interacted === 'true') {

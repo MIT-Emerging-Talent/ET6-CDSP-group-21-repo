@@ -35,35 +35,43 @@ MANUALLY_COLLECTED_REAL_JOBS_FILE = os.path.join(DATA_DIR, 'cleaned_real_jobs.cs
 
 # --- Global Data Storage (for simplicity in this small app) ---
 # Load users from CSV
-users_df = pd.DataFrame()
-if os.path.exists(USERS_FILE):
-    users_df = pd.read_csv(USERS_FILE)
-else:
-    print(f"WARNING: {USERS_FILE} not found. Please create it.")
-    # Create a dummy DataFrame if the file doesn't exist to prevent errors
-    users_df = pd.DataFrame(columns=['username', 'password', 'group'])
+# Load users from CSV
+# IMPORTANT: users_df will now be reloaded on each request to ensure 'has_logged_in' is fresh
+# For a production app, consider a more robust database or a caching mechanism
+def load_users_df():
+    if os.path.exists(USERS_FILE):
+        return pd.read_csv(USERS_FILE)
+    else:
+        print(f"WARNING: {USERS_FILE} not found. Please run setup_users.py.")
+        return pd.DataFrame(columns=['username', 'password', 'group', 'has_logged_in'])
 
 # Ensure the desperation results CSV exists with headers
 if not os.path.exists(DESPERATION_RESULTS_FILE):
     with open(DESPERATION_RESULTS_FILE, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['timestamp', 'user_id', 'group', 'q1_answer', 'q2_answer', 'q3_answer', 'q4_answer', 'q5_answer', 'desperation_score'])
+        # UPDATED: Added 'age_range' to the header
+        writer.writerow(['timestamp', 'user_id', 'group', 'age_range', 'q1_answer', 'q2_answer', 'q3_answer', 'q4_answer', 'q5_answer', 'desperation_score'])
 
 # Ensure job responses CSV exists with headers
 if not os.path.exists(JOB_RESPONSES_FILE):
     with open(JOB_RESPONSES_FILE, 'w', newline='') as f:
         writer = csv.writer(f)
+        # UPDATED: Added 'is_scam_job', 'desperation_score', 'age_range' to the header
         writer.writerow([
             'timestamp', 'user_id', 'group', 'job_id', 'job_index_in_set',
+            'is_scam_job', # NEW
             'is_scam_response', 'scam_reason_text', 'applied_clicked', 'link_interacted',
-            'time_on_job_page_seconds' # New metric to track
+            'time_on_job_page_seconds',
+            'desperation_score', # NEW
+            'age_range' # NEW
         ])
 
 # Ensure exit survey results CSV exists with headers
 if not os.path.exists(EXIT_SURVEY_RESULTS_FILE):
     with open(EXIT_SURVEY_RESULTS_FILE, 'w', newline='') as f:
         writer = csv.writer(f)
-        writer.writerow(['timestamp', 'user_id', 'group', 'jobs_interacted_range', 'low_interaction_reasons', 'low_interaction_other_reason'])
+        writer.writerow(['timestamp', 'user_id', 'group', 'jobs_interacted_range', 'low_interaction_reasons', 'low_interaction_other_reason', 'scam_warning_feedback', 'scam_warning_other_feedback'])
+
 
 # --- Job Data Loading and Preparation ---
 all_jobs_df = pd.DataFrame()
@@ -91,43 +99,31 @@ try:
     print(f"Loaded {len(fake_jobs)} fake jobs and {len(real_jobs)} real jobs.")
     print(f"Total jobs loaded: {len(all_jobs_df)}")
 
-    # Assign jobs to sets (15 for Group A, 15 for Groups B, C, D)
-    # This assumes you have at least 15 fake and 15 real jobs to draw from for each set.
-    # For simplicity, let's create two sets of 15 jobs each, ensuring a mix.
-    # You'll need to adjust this logic if your total job count is different or you want a specific real/fake ratio.
-    
-    # Ensure enough jobs for both sets
-    if len(all_jobs_df) < 30:
-        raise ValueError("Not enough job postings to create two sets of 15. Need at least 30 total jobs.")
-
-    # Separate real and fake jobs for balanced sampling
+    # --- UPDATED: Create a single job set for all groups (11fake, 10 real)
     all_real_jobs = all_jobs_df[all_jobs_df['is_scam_job'] == False].copy()
     all_fake_jobs = all_jobs_df[all_jobs_df['is_scam_job'] == True].copy()
 
-    if len(all_real_jobs) < 15 or len(all_fake_jobs) < 15:
-        raise ValueError("Need at least 15 real and 15 fake jobs to create balanced sets.")
+    if len(all_real_jobs) < 12 or len(all_fake_jobs) < 11:
+        raise ValueError("Not enough real or fake jobs to create a balanced set of 12 real and 12 fake.")
 
-    # Randomly sample for set A (e.g., 7 fake, 8 real)
-    job_set_A_fake = all_fake_jobs.sample(n=7, random_state=42)
-    job_set_A_real = all_real_jobs.sample(n=8, random_state=42)
-    job_set_A = pd.concat([job_set_A_fake, job_set_A_real], ignore_index=True).sample(frac=1, random_state=42).reset_index(drop=True)
-    job_set_A['job_id'] = job_set_A['job_id'].astype(str) # Ensure job_id is string
+    # Sample 12 fake jobs (use all if less than 12, but user specified 12 total fake)
+    # Assuming 'llm_refined_30_fake_job_postings.csv' has at least 12 fake jobs as per user's note.
+    common_job_set_fake = all_fake_jobs.sample(n=11, random_state=42).copy()
+    
+    # Sample 12 real jobs from the available 22
+    common_job_set_real = all_real_jobs.sample(n=10, random_state=42).copy()
+    
+    # Combine and shuffle the common job set
+    common_job_set = pd.concat([common_job_set_fake, common_job_set_real], ignore_index=True).sample(frac=1, random_state=42).reset_index(drop=True)
+    common_job_set['job_id'] = common_job_set['job_id'].astype(str) # Ensure job_id is string
 
-    # Remaining jobs for set BCD (e.g., 8 fake, 7 real - from those not in set A)
-    remaining_fake_jobs = all_fake_jobs.drop(job_set_A_fake.index)
-    remaining_real_jobs = all_real_jobs.drop(job_set_A_real.index)
-
-    job_set_BCD_fake = remaining_fake_jobs.sample(n=8, random_state=42)
-    job_set_BCD_real = remaining_real_jobs.sample(n=7, random_state=42)
-    job_set_BCD = pd.concat([job_set_BCD_fake, job_set_BCD_real], ignore_index=True).sample(frac=1, random_state=42).reset_index(drop=True)
-    job_set_BCD['job_id'] = job_set_BCD['job_id'].astype(str) # Ensure job_id is string
-
-    # Store these sets globally for access by the session
+    # Store this single set for all groups
     app.config['JOB_SETS'] = {
-        'A': job_set_A.to_dict(orient='records'),
-        'BCD': job_set_BCD.to_dict(orient='records')
+        'A': common_job_set.to_dict(orient='records'),
+        'BCD': common_job_set.to_dict(orient='records') # BCD now also points to the common set
     }
-    print("Job sets prepared for groups A and BCD.")
+    print(f"Common job set prepared for all groups. Total jobs: {len(common_job_set)}")
+    # --- END UPDATED JOB SET CREATION ---
 
 except FileNotFoundError as e:
     print(f"ERROR: Job data file not found: {e}. Please ensure '{DATA_DIR}' exists and contains '{AI_REFINED_FAKE_JOBS_FILE}' and '{MANUALLY_COLLECTED_REAL_JOBS_FILE}'.")
@@ -147,13 +143,37 @@ DESPERATION_QUESTIONS = [
     "Are you likely to overlook minor red flags in a job posting if the pay is good?"
 ]
 
+# NEW: Age Ranges for Desperation Index
+AGE_RANGES = [
+    "18-24",
+    "25-34",
+    "35-44",
+    "45-54",
+    "55-64",
+    "65+"
+]
+
 # --- Exit Survey Questions ---
-JOBS_INTERACTED_RANGES = ["Less than 5", "5-10", "11-15"]
+JOBS_INTERACTED_RANGES = ["Less than 5", "5-10", "11-15", "16-20", "More than 20"]
 LOW_INTERACTION_REASONS = [
     "Roles were not a fit",
     "Salaries too low",
     "I got bored or tired",
     "Technical issues",
+    "Other"
+]
+
+# NEW: Scam Warning Feedback Options for Groups B, C, D
+SCAM_WARNING_FEEDBACK_OPTIONS = [
+    "It helped me quickly identify potential scam jobs.",
+    "I sometimes found it distracting.",
+    "It made me more cautious about applying to certain jobs.",
+    "I felt it was too alarmist or made me overly suspicious.",
+    "It increased my trust in the job board.",
+    "It felt helpful and informative.",
+    "It didn't significantly change how I interacted with jobs.",
+    "I found it confusing.",
+    "I tended to ignore it.",
     "Other"
 ]
 
@@ -178,22 +198,54 @@ def login():
         username = request.form['username']
         password = request.form['password']
 
+        users_df = load_users_df() # Load the latest users_df
+
         # Check if user exists and password matches
         user_match = users_df[(users_df['username'] == username) & (users_df['password'] == password)]
 
         if not user_match.empty:
-            # Store user info in session
+            # Check if user has already logged in
+            if user_match['has_logged_in'].iloc[0]:
+                print(f"DEBUG: User {username} tried to log in again. Access denied.")
+                return render_template('login.html', error="This account has already completed the study or is currently in use. Please contact support if you believe this is an error.")
+            
+            # If not logged in before, proceed with login
             session['user_id'] = username
             session['group'] = user_match['group'].iloc[0] # Get the assigned group
-            # Initialize interacted_job_ids as a list for JSON serialization
-            session['interacted_job_ids'] = []
-            print(f"User {username} logged in. Assigned to group: {session['group']}")
+            session['interacted_job_ids'] = [] # Initialize interacted_job_ids as a list
+
+            # Mark user as logged in in the DataFrame and save it
+            users_df.loc[user_match.index, 'has_logged_in'] = True
+            users_df.to_csv(USERS_FILE, index=False) # Save changes to CSV
+            print(f"User {username} logged in successfully. Marked as 'has_logged_in'. Assigned to group: {session['group']}")
             return redirect(url_for('desperation_index'))
         else:
             print(f"DEBUG: Login failed for user {username}.")
             return render_template('login.html', error="Invalid username or password.")
     print(f"DEBUG: Displaying login page. Current session: {session.get('user_id')}")
     return render_template('login.html', error=None)
+
+
+    # if request.method == 'POST':
+    #     username = request.form['username']
+    #     password = request.form['password']
+
+    #     # Check if user exists and password matches
+    #     user_match = users_df[(users_df['username'] == username) & (users_df['password'] == password)]
+
+    #     if not user_match.empty:
+    #         # Store user info in session
+    #         session['user_id'] = username
+    #         session['group'] = user_match['group'].iloc[0] # Get the assigned group
+    #         # Initialize interacted_job_ids as a list for JSON serialization
+    #         session['interacted_job_ids'] = []
+    #         print(f"User {username} logged in. Assigned to group: {session['group']}")
+    #         return redirect(url_for('desperation_index'))
+    #     else:
+    #         print(f"DEBUG: Login failed for user {username}.")
+    #         return render_template('login.html', error="Invalid username or password.")
+    # print(f"DEBUG: Displaying login page. Current session: {session.get('user_id')}")
+    # return render_template('login.html', error=None)
 
 @app.route('/desperation_index', methods=['GET', 'POST'])
 def desperation_index():
@@ -211,6 +263,7 @@ def desperation_index():
         user_id = session['user_id']
         group = session['group']
         timestamp = datetime.now().isoformat()
+        age_range = request.form.get('age_range') # Get age range from form
 
         answers = {}
         desperation_score = 0
@@ -228,46 +281,49 @@ def desperation_index():
             answers[question_key] = answer
             desperation_score += score_mapping.get(answer, 0) # Add score, default to 0 if answer not found
 
+        # Store desperation_score and age_range in session for later use in job_responses
+        session['desperation_score'] = desperation_score # NEW: Store in session
+        session['age_range'] = age_range # NEW: Store in session
+
         # Store results in CSV
         with open(DESPERATION_RESULTS_FILE, 'a', newline='') as f:
             writer = csv.writer(f)
+            # UPDATED: Added age_range to the row
             writer.writerow([
-                timestamp, user_id, group,
+                timestamp, user_id, group, age_range,
                 answers.get('q1'), answers.get('q2'), answers.get('q3'), answers.get('q4'), answers.get('q5'),
                 desperation_score
             ])
         print(f"Desperation index submitted for user {user_id} (Score: {desperation_score}).")
 
         # Initialize interacted_job_ids for tracking which jobs a user *has* interacted with (for disabling buttons)
-        session['interacted_job_ids'] = [] #set()
+        session['interacted_job_ids'] = [] # Use list for JSON serialization
         print(f"DEBUG: Session state BEFORE redirect to job_display: user_id={session.get('user_id')}, group={session.get('group')}, interacted_job_ids={session.get('interacted_job_ids')}")
         return redirect(url_for('job_display'))
     
     # GET request: Display the form
     questions_with_index = list(enumerate(DESPERATION_QUESTIONS))
     print(f"DEBUG: Displaying desperation_index form for user {session.get('user_id')}.")
-    return render_template('desperation_index.html', questions=questions_with_index)
+    # UPDATED: Pass AGE_RANGES to the template
+    return render_template('desperation_index.html', questions=questions_with_index, age_ranges=AGE_RANGES)
 
-@app.route('/job_display', methods=['GET', 'POST'])
+@app.route('/job_display', methods=['GET']) # Removed POST as interactions are now AJAX
 def job_display():
     """
     Displays all job postings for the user's group as a scrollable board.
     Dynamically adds scam indicator based on group.
     """
-    print(f"DEBUG: Entering job_display route. Current session: user_id={session.get('user_id')}, job_index={session.get('current_job_index')}")
-    if 'user_id' not in session: # or 'current_job_index' not in session:
-        print("DEBUG: Session missing user_id or current_job_index in job_display, redirecting to login.")
+    print(f"DEBUG: Entering job_display route (GET). Current session: user_id={session.get('user_id')}")
+    if 'user_id' not in session: # Removed 'current_job_index' check
+        print("DEBUG: User not in session, redirecting to login from job_display.")
         return redirect(url_for('login'))
 
     user_id = session['user_id']
     group = session['group']
-    #current_job_index = session['current_job_index']
-
-    # Determine which job set to use based on group
-    if group == 'A':
-        job_set = app.config['JOB_SETS']['A']
-    else: # Groups B, C, D
-        job_set = app.config['JOB_SETS']['BCD']
+    
+    # --- UPDATED: All groups now use the same job set ---
+    job_set = app.config['JOB_SETS']['BCD'] # All groups now get the 'BCD' set (which is the common set)
+    # --- END UPDATED ---
 
     # Deep copy to avoid modifying the global app.config directly
     jobs_for_display = [job.copy() for job in job_set]
@@ -277,9 +333,8 @@ def job_display():
 
     # --- Dynamic Scam Information Logic ---
     for job in jobs_for_display:
-        is_scam = job.get('is_scam_job', False) # Default to False if missing
+        is_scam = job.get('is_scam_job', False) # Using 'is_scam_job' as per your app.py
 
-        # Group A: Show "Is this a scam?" question
         job['show_scam_question'] = (group == 'A')
         
         # Group B: Dynamic Scam Risk Score
@@ -294,7 +349,7 @@ def job_display():
         # Group C: Dynamic Scam Sign (Green/Red)
         if group == 'C':
             job['scam_sign_color'] = 'green' if not is_scam else 'red'
-            job['scam_sign_text'] = 'Legitimate Job' if not is_scam else 'Potential Scam Risk'
+            job['scam_sign_text'] = 'Legitimate Job' if not is_scam else 'Potential Scam Risk' # Text still passed, but HTML won't display it
         else:
             job['scam_sign_color'] = None
             job['scam_sign_text'] = None
@@ -309,9 +364,6 @@ def job_display():
             job['scam_warning_text'] = None
             
         # Add a flag to track if this job has been interacted with in the current session
-        #job['interacted'] = job['job_id'] in session.get('interacted_job_ids', set())
-
-        # Check if job has been interacted with in the current session (for disabling individual buttons)
         job['interacted'] = job['job_id'] in current_interacted_ids
 
     print(f"DEBUG: Displaying job board for user {user_id} in group {group}. Total jobs: {len(jobs_for_display)}")
@@ -321,7 +373,7 @@ def job_display():
         'job_board.html',
         jobs=jobs_for_display, # Pass the entire list of processed jobs
         user_group=group,
-        #total_jobs_in_set=len(job_set)
+        # total_jobs_in_set is no longer used for button enablement, so removed from context
     )
 
 @app.route('/record_job_interaction', methods=['POST'])
@@ -352,15 +404,13 @@ def record_job_interaction():
     time_on_page_seconds = data.get('time_on_page_seconds', 0)
 
     # Find the job_index_in_set for the current job_id
-    job_set_for_user = app.config['JOB_SETS']['A'] if group == 'A' else app.config['JOB_SETS']['BCD']
+    job_set_for_user = app.config['JOB_SETS']['BCD'] # All groups now use the common 'BCD' set
     job_index_in_set = -1
+    is_scam_job_actual = data.get('is_scam_job_actual') # NEW: Get actual scam status from frontend
 
-    # --- Debugging: Print job_ids for comparison ---
     print(f"DEBUG: Received job_id from frontend: '{job_id}' (type: {type(job_id)})")
-    # Collect all job_ids in the user's set for debugging
     all_set_job_ids = [job_item.get('job_id') for job_item in job_set_for_user]
     print(f"DEBUG: Job IDs in user's set: {all_set_job_ids}")
-    # --- End Debugging ---
 
     for idx, job_item in enumerate(job_set_for_user):
         # Ensure comparison is between strings
@@ -369,8 +419,12 @@ def record_job_interaction():
             break
     
     if job_index_in_set == -1:
-        print(f"ERROR: Job ID {job_id} not found in user's job set.")
-        return jsonify(success=False, message="Job not found"), 400
+        print(f"ERROR: Job ID '{job_id}' not found in user's job set. This indicates a mismatch.")
+        return jsonify(success=False, message=f"Job '{job_id}' not found in user's job set"), 400
+
+    # Retrieve desperation_score and age_range from session
+    desperation_score_session = session.get('desperation_score', 'N/A') # NEW
+    age_range_session = session.get('age_range', 'N/A') # NEW
 
     # Retrieve, modify, and store interacted_job_ids as a list
     interacted_job_ids_list = session.get('interacted_job_ids', [])
@@ -387,11 +441,14 @@ def record_job_interaction():
             group,
             job_id,
             job_index_in_set,
+            is_scam_job_actual, # NEW
             'yes' if interaction_type == 'is_scam_yes' else ('no' if interaction_type == 'is_scam_no' else ''), # is_scam_response
             scam_reason_text, # Will now be comma-separated string of reasons
             'yes' if interaction_type == 'applied' else 'no', # applied_clicked
             'yes' if interaction_type == 'link_clicked' else 'no', # link_interacted
-            time_on_page_seconds
+            time_on_page_seconds,
+            desperation_score_session, # NEW
+            age_range_session # NEW
         ])
     print(f"DEBUG: Recorded interaction '{interaction_type}' for job {job_id} by user {user_id}.")
     print(f"DEBUG: Current interacted_job_ids in session: {session['interacted_job_ids']}")
@@ -418,9 +475,14 @@ def exit_survey():
         jobs_interacted_range = request.form.get('jobs_interacted_range')
         low_interaction_reasons = request.form.getlist('low_interaction_reasons') # getlist for multiple checkboxes
         low_interaction_other_reason = request.form.get('low_interaction_other_reason', '').strip()
+        
+        # NEW: Capture scam warning feedback
+        scam_warning_feedback = request.form.getlist('scam_warning_feedback')
+        scam_warning_other_feedback = request.form.get('scam_warning_other_feedback', '').strip()
 
-        # Convert list of reasons to a comma-separated string for CSV
+        # Convert lists of reasons to comma-separated strings for CSV
         low_interaction_reasons_str = ", ".join(low_interaction_reasons)
+        scam_warning_feedback_str = ", ".join(scam_warning_feedback)
 
         with open(EXIT_SURVEY_RESULTS_FILE, 'a', newline='') as f:
             writer = csv.writer(f)
@@ -430,7 +492,9 @@ def exit_survey():
                 group,
                 jobs_interacted_range,
                 low_interaction_reasons_str,
-                low_interaction_other_reason
+                low_interaction_other_reason,
+                scam_warning_feedback_str, # NEW COLUMN
+                scam_warning_other_feedback # NEW COLUMN
             ])
         print(f"DEBUG: Exit survey submitted for user {user_id}.")
         return redirect(url_for('thank_you'))
@@ -439,18 +503,20 @@ def exit_survey():
     return render_template(
         'exit_survey.html',
         jobs_interacted_ranges=JOBS_INTERACTED_RANGES,
-        low_interaction_reasons=LOW_INTERACTION_REASONS
+        low_interaction_reasons=LOW_INTERACTION_REASONS,
+        scam_warning_feedback_options=SCAM_WARNING_FEEDBACK_OPTIONS, # NEW: Pass options to template
+        user_group=session['group'] # NEW: Pass user group to template for conditional display
     )
 
 @app.route('/thank_you')
 def thank_you():
     """
-    Placeholder for the final thank you page.
+    Renders the final thank you page after study completion.
     """
     print(f"DEBUG: Entering thank_you route. Session user_id: {session.get('user_id')}")
     session.clear() # Clear session after study completion
     print("DEBUG: Session cleared.")
-    return "Thank you for participating! We will follow up via email. (Day 4)"
+    return render_template('thank_you.html')
 
 
 @app.route('/logout')
@@ -461,7 +527,9 @@ def logout():
     print(f"DEBUG: Logging out user. Session user_id before clear: {session.get('user_id')}")
     session.pop('user_id', None)
     session.pop('group', None)
-    session.pop('current_job_index', None)
+    session.pop('interacted_job_ids', None) # Clear the new session variable
+    session.pop('desperation_score', None) # NEW: Clear desperation score from session
+    session.pop('age_range', None) # NEW: Clear age range from session
     print("DEBUG: Session popped. Redirecting to login.")
     return redirect(url_for('login'))
 

@@ -72,6 +72,26 @@
                 </div>
             </div>
 
+            {# NEW SECTION: Scam Warning Feedback for Groups B, C, D #}
+            {% if user_group in ['B', 'C', 'D'] %}
+            <div class="mb-6">
+                <p class="block text-lg font-semibold text-gray-700 mb-3">
+                    Thinking about the job postings you viewed, how did the scam warning/indicator (e.g., score, icon, text) affect your experience or decision-making? (Select all that apply)
+                </p>
+                <div class="space-y-2">
+                    {% for option in scam_warning_feedback_options %}
+                        <label class="inline-flex items-center text-gray-700">
+                            <input type="checkbox" name="scam_warning_feedback" value="{{ option }}" class="form-checkbox text-blue-600 {% if option == 'Other' %}other-scam-feedback-checkbox{% endif %}">
+                            <span class="ml-2">{{ option }}</span>
+                        </label>
+                        {% if option == "Other" %}
+                            <textarea id="scam-warning-other-feedback-text" name="scam_warning_other_feedback" class="w-full p-2 text-sm border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500 mt-1 hidden" rows="1" placeholder="Please specify"></textarea>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+
             <div class="text-center mt-8">
                 <button type="submit" class="button-primary px-8 py-4 text-xl">Submit Survey</button>
             </div>
@@ -83,6 +103,11 @@
         const lowInteractionReasonsSection = document.getElementById('low-interaction-reasons-section');
         const otherReasonCheckbox = document.querySelector('input[name="low_interaction_reasons"][value="Other"]');
         const otherReasonTextarea = document.getElementById('low-interaction-other-reason-text');
+
+        // NEW: Elements for scam warning feedback
+        const otherScamFeedbackCheckbox = document.querySelector('.other-scam-feedback-checkbox');
+        const otherScamFeedbackTextarea = document.getElementById('scam-warning-other-feedback-text');
+
 
         function toggleLowInteractionReasons() {
             if (jobsInteractedRangeSelect.value === 'Less than 5') {
@@ -99,7 +124,7 @@
         }
 
         function toggleOtherReasonTextarea() {
-            if (otherReasonCheckbox.checked) {
+            if (otherReasonCheckbox && otherReasonCheckbox.checked) {
                 otherReasonTextarea.classList.remove('hidden');
             } else {
                 otherReasonTextarea.classList.add('hidden');
@@ -107,15 +132,30 @@
             }
         }
 
+        // NEW: Function to toggle other scam feedback textarea
+        function toggleOtherScamFeedbackTextarea() {
+            if (otherScamFeedbackCheckbox && otherScamFeedbackCheckbox.checked) {
+                otherScamFeedbackTextarea.classList.remove('hidden');
+            } else {
+                otherScamFeedbackTextarea.classList.add('hidden');
+                otherScamFeedbackTextarea.value = '';
+            }
+        }
+
         jobsInteractedRangeSelect.addEventListener('change', toggleLowInteractionReasons);
         if (otherReasonCheckbox) {
             otherReasonCheckbox.addEventListener('change', toggleOtherReasonTextarea);
+        }
+        // NEW: Event listener for other scam feedback checkbox
+        if (otherScamFeedbackCheckbox) {
+            otherScamFeedbackCheckbox.addEventListener('change', toggleOtherScamFeedbackTextarea);
         }
 
         // Initial call to set visibility on page load
         document.addEventListener('DOMContentLoaded', () => {
             toggleLowInteractionReasons();
-            toggleOtherReasonTextarea(); // In case "Other" was pre-checked (though not expected here)
+            toggleOtherReasonTextarea();
+            toggleOtherScamFeedbackTextarea(); // NEW: Initial call for scam feedback textarea
         });
     </script>
 </body>

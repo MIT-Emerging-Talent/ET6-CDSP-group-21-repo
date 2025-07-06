@@ -1,4 +1,4 @@
-timestamp,user_id,group,jobs_interacted_range,low_interaction_reasons,low_interaction_other_reason
-2025-07-04T09:33:30.873815,testuser1,A,Less than 5,"Roles were not a fit, I got bored or tired",
-2025-07-04T09:40:15.370935,testuser2,B,Less than 5,Other,i onlywent for the jobs with very low scam risk.
-2025-07-04T09:45:01.733157,testuser3,C,Less than 5,Roles were not a fit,
+timestamp,user_id,group,jobs_interacted_range,low_interaction_reasons,low_interaction_other_reason,scam_warning_feedback,scam_warning_other_feedback
+2025-07-05T23:39:17.310814,testuser1,A,Less than 5,Roles were not a fit,,,
+2025-07-05T23:53:53.626491,testuser3,C,Less than 5,I got bored or tired,,"It helped me quickly identify potential scam jobs., It made me more cautious about applying to certain jobs., I sometimes found it distracting.",
+2025-07-06T00:58:52.316860,user_Btjsgb,C,Less than 5,Roles were not a fit,,"It helped me quickly identify potential scam jobs., It made me more cautious about applying to certain jobs., It increased my trust in the job board., It felt helpful and informative.",

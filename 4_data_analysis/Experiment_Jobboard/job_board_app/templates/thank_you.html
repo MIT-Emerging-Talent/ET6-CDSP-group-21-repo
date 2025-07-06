@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2rem;
+            text-align: center;
+        }
+        .thank-you-container {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 3rem;
+            max-width: 500px;
+            width: 100%;
+        }
+        .github-link {
+            color: #3b82f6; /* Tailwind blue-500 */
+            text-decoration: underline;
+            font-weight: 600;
+            transition: color 0.2s ease-in-out;
+        }
+        .github-link:hover {
+            color: #2563eb; /* Tailwind blue-600 */
+        }
+    </style>
+</head>
+<body>
+    <div class="thank-you-container">
+        <h1 class="text-3xl font-bold text-gray-800 mb-4">Thank You for Participating!</h1>
+        <p class="text-lg text-gray-700 mb-6">
+            Your contribution is invaluable to our research.
+        </p>
+        <p class="text-md text-gray-600">
+            You can read more about the study and its findings at our
+            <a href="https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/4_data_analysis/README.md" target="_blank" class="github-link">Github</a> page.
+        </p>
+    </div>
+</body>
+</html>
