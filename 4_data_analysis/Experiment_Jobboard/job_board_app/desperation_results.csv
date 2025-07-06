@@ -1,4 +1,0 @@
-timestamp,user_id,group,age_range,q1_answer,q2_answer,q3_answer,q4_answer,q5_answer,desperation_score
-2025-07-05T23:35:26.814220,testuser1,A,25-34,Agree,Agree,Neutral,Agree,Neutral,65
-2025-07-05T23:52:40.015692,testuser3,C,25-34,Disagree,Strongly Disagree,Disagree,Agree,Neutral,35
-2025-07-06T00:56:30.748759,user_Btjsgb,C,25-34,Disagree,Neutral,Neutral,Agree,Agree,55

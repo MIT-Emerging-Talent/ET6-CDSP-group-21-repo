@@ -1,9 +1,0 @@
-timestamp,user_id,group,job_id,job_index_in_set,is_scam_job,is_scam_response,scam_reason_text,applied_clicked,link_interacted,time_on_job_page_seconds,desperation_score,age_range
-2025-07-05T23:36:38.152093,testuser1,A,1251,2,,no,No visible red flags,no,no,71,65,25-34
-2025-07-05T23:37:08.980618,testuser1,A,5452,3,,yes,"Wording of posting (long vs short), I looked for the company online",no,no,102,65,25-34
-2025-07-05T23:37:30.649794,testuser1,A,1246,8,,no,No visible red flags,no,no,124,65,25-34
-2025-07-05T23:37:59.805969,testuser1,A,1259,13,,,,yes,no,153,65,25-34
-2025-07-05T23:38:58.470598,testuser1,A,6576,14,,,,yes,no,211,65,25-34
-2025-07-05T23:52:55.230061,testuser3,C,1258,10,,,,yes,no,15,35,25-34
-2025-07-05T23:53:08.223784,testuser3,C,17713,17,,,,yes,no,28,35,25-34
-2025-07-06T00:57:44.181026,user_Btjsgb,C,1259,13,,,,yes,no,73,55,25-34

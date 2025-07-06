@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+instance/
+users.csv # If you want to keep this local only, otherwise it will be deployed
+desperation_results.csv
+job_responses.csv
+exit_survey_results.csv
+users_final_db_state.csv
