@@ -22,6 +22,8 @@ This research aims to explore the role of visual and textual elements,
 application process, along with LLMs in shaping user perceptions and actions
 in the online job-seeking environment.
 
+---
+
 ## Pattern
 
 One emerging pattern is the use of highly attractive job descriptions and offers,
@@ -46,6 +48,8 @@ request is made after a series of
 seemingly normal interactions, people are more likely to comply, especially if
 they’ve already invested time and emotional energy in the application.
 
+---
+
 ## Structure
 
 At a structural level, one of the key reasons online job scams are so effective
@@ -58,6 +62,8 @@ and even **_bank details_** in some cases. In many cases,
 These practices are so deeply rooted in professional norms that applicants rarely
 question them, which makes it easier for scammers to
 blend in without raising suspicion.
+
+---
 
 ## Mental Mode
 
@@ -84,6 +90,8 @@ These internalized beliefs about urgency, personal failure,
 and individual responsibility, act as invisible forces that keep the scam
 ecosystem alive and difficult to disrupt.
 
+---
+
 ## Conclusion
 
 By mapping the user journey, we can better understand how people navigate scam
@@ -103,6 +111,8 @@ motivations, behaviors, and emotional journey. By this research we're planing to
 go beyond just raising awareness, and actually identify patterns to build
 preventative strategies, platform-level solutions, and behavioral cues that
 empower users earlier in the process.
+
+---
 
 ## Sub Domains
 

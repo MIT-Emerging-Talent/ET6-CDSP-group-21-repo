@@ -32,6 +32,8 @@ to use in the job board, organize it, refine it by Gemini, then use it to test
 humans' ability to detect if the job provided is legitimate or fraudulent when
 it's written by AI, since it mimics real job posts.
 
+---
+
 ## Processed Fake Jobs
 
 The raw data was collected between **2012** and **2014**, before the development
@@ -39,6 +41,8 @@ of AI, therefore, **_thirty_** fake job posts were randomly selected from **_raw
 fake jobs_**
 file and used an algorithm to automatically refine them, using the Gemini API to
 generate AI-enhanced fraudulent postings.
+
+---
 
 ## Raw Real Jobs
 
@@ -48,6 +52,8 @@ Each entry in this dataset includes **_job title, company name, full job descrip
 **_announcement platform, URL, and date_**. All jobs were posted in 2025.
 
 This data is only internally available via the shared link.
+
+---
 
 ## Past Relevant Studies
 
