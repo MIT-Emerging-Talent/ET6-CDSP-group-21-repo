@@ -1,4 +1,4 @@
-# 🔍 Data Exploration
+# Data Exploration
 
 This study examines job seekers' ability to detect AI-generated fraudulent job
 postings in an era where advanced language models can create highly convincing
@@ -22,14 +22,14 @@ job postings to study fraud detection in job listings. Below are the key data
 sources and processing steps:
 
 1. Primary Dataset (Fake Job Postings)  
-📌 Source: Kaggle - Fake Job Posting Prediction  
-🔹 Description:
+Source: Kaggle - Fake Job Posting Prediction
+Description:
 
 Contains 17,880 job postings labeled as real (0) or fake (1).
 
 Features: title, location, company_profile, description, requirements, benefits,
 fraudulent (target).  
-🔹 Preprocessing:
+ Preprocessing:
 
 Removed duplicate entries.
 
