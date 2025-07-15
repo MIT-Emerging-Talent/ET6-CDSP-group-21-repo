@@ -151,3 +151,7 @@ This project uses a combination of public datasets and simulated AI-generated
 - Python: pandas, seaborn, matplotlib
 - Libraries: nltk, missingno
 - Excel for manual review
+
+### 📊 To view the file, please download it from the link below
+
+[Click here to download the Excel file](https://1drv.ms/x/c/5a56bc1cb2acee7d/EVkz8qCOOgdKnVO8lc5sKqQB1K9gCsmRkoTB4fddA0np2g?e=knGBAZ)
