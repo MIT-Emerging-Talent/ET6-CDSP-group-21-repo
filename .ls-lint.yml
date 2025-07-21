@@ -16,10 +16,14 @@ ignore:
   - .ls-lint.yml
   - .markdownlint.yml
 version: 1
-ignore:
-  - "**/.vscode"
 
 rules:
   filename:
     regex: '^[a-z0-9_]+$'
     match: true
+
+ignore:
+  - "**/.vscode"
+  - "**/node_modules"
+  - "**/.git"
+  - README.md
