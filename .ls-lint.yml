@@ -15,15 +15,13 @@ ignore:
   - __pycache__
   - .ls-lint.yml
   - .markdownlint.yml
+   "**/.vscode"
+  - "**/node_modules"
+  - "**/.git"
+  - README.md
 version: 1
 
 rules:
   filename:
     regex: '^[a-z0-9_]+$'
     match: true
-
-ignore:
-  - "**/.vscode"
-  - "**/node_modules"
-  - "**/.git"
-  - README.md
