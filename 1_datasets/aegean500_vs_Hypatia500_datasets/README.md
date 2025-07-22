@@ -32,4 +32,9 @@ the Hypatia500 in the Notebook ***3_data_exploration/aegean_hypatia_datasets_exp
 
 ## Choice of Dataset
 
-A brief recap of the study -
+A brief recap of the study - Our research is focused on exploring fake job
+dynamics in the era of AI. Specifically we are asking; To what extent can humans
+and models detect fraudulent job posts when the scam text is written by AI.
+
+To study this, we need a simulation of fake jobs written by AI (hence the
+refined aegean500) and modern day real jobs (hence the hypatia500).
