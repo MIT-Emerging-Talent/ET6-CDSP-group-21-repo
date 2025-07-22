@@ -22,14 +22,14 @@ OUTPUT_COMBINED_CSV = (
 
 
 # --- Script Logic ---
-def combine_refined_datasets(input_dir, suffixes, prefix, output_path):
+def combine_refined_datasets(input_dir, suffixes, prefix, output_path):  # noqa: E501
     """
-    Combines individual refined batch CSVs into a single DataFrame and saves it.
+    Combines individual refined batch CSVs into a single DataFrame and saves it.  # noqa: E501
     """
     all_dfs = []
     found_files_count = 0
 
-    print(f"Starting to combine refined files from: {input_dir}")
+    print(f"Starting to combine refined files from: {input_dir}")  # noqa: E501
 
     for suffix in suffixes:
         filename = f"{prefix}{suffix}_refined.csv"
@@ -48,26 +48,26 @@ def combine_refined_datasets(input_dir, suffixes, prefix, output_path):
             print(f"  File not found: {filename} (might still be processing or pushed)")  # noqa: E501
 
     if not all_dfs:
-        print("No refined files were found or successfully loaded. Cannot combine.")
+        print("No refined files were found or successfully loaded. Cannot combine.")  # noqa: E501
         print(
-            "Please ensure your team has pushed their refined CSVs and paths are correct."
+            "Please ensure your team has pushed their refined CSVs and paths are correct."  # noqa: E501
         )  # noqa: E501
         return
 
-    print(f"\nSuccessfully loaded {found_files_count} refined batch files.")
+    print(f"\nSuccessfully loaded {found_files_count} refined batch files.")  # noqa: E501
 
     try:
         # Concatenate all DataFrames row-wise
         combined_df = pd.concat(all_dfs, ignore_index=True)
 
         # Optional: Remove any potential duplicates based on 'job_id'
-        # This is a good safeguard, though ideally not needed if splitting was perfect.
+        # This is a good safeguard, though ideally not needed if splitting was perfect.  # noqa: E501
         if "job_id" in combined_df.columns:
             initial_rows = len(combined_df)
             combined_df.drop_duplicates(subset=["job_id"], inplace=True)
             if len(combined_df) < initial_rows:
                 print(
-                    f"  Removed {initial_rows - len(combined_df)} duplicate job entries."
+                    f"  Removed {initial_rows - len(combined_df)} duplicate job entries."  # noqa: E501
                 )
         else:
             print("  'job_id' column not found for checking duplicates.")
@@ -75,7 +75,7 @@ def combine_refined_datasets(input_dir, suffixes, prefix, output_path):
         # Save the final combined DataFrame
         combined_df.to_csv(output_path, index=False)
         print(
-            f"\nSuccessfully combined {len(combined_df)} refined jobs into: {output_path}"
+            f"\nSuccessfully combined {len(combined_df)} refined jobs into: {output_path}"  # noqa: E501
         )  # noqa: E501
         print("You can now proceed with your NLP analysis on this file.")
 
