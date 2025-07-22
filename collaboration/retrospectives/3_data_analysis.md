@@ -71,6 +71,8 @@ Overall, I learned a lot from this phase.
 
 ### **Justina**
 
+this image right here is how I feel about the data analysis milestone and no
+amount of words can capture that
 ![Justina's Retrospective](../retrospectives/justina-retro.png)
 
 ### **Alaa**
