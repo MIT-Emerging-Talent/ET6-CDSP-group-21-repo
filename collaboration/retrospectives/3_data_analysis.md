@@ -71,7 +71,7 @@ Overall, I learned a lot from this phase.
 
 ### **Justina**
 
-![Justina's Retrospective](retrospectives/justina-retro.png)
+![Justina's Retrospective](C:\Users\User\ET6-CDSP-group-21-repo\collaboration\retrospectives\justina-retro.png)
 
 ### **Alaa**
 
