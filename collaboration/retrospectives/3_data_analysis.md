@@ -78,13 +78,16 @@ amount of words can capture that
 
 ### **Alaa**
 
-I gained work experience from these milestones, both in soft and technical skills.
-From data exploration and initial analysis to full data analysis, I delved into
-TF-IDF.
-I faced some installation errors on GitHub, but I was able to fix them quickly.
-I also created charts and performed analysis using Excel.  
-However, I understand the importance of Python and am familiar with using
-libraries such as Pandas, Matplotlib (plt), NumPy, and others.
+This milestone was all about trial and error! An extremely challenging one!
+It was not just about analyzing the data; it also involved going back and forth
+to the raw data and cleaning it accordingly. The cleaning process took a lot of
+thinking, coding, and practice, but I enjoyed the process nonetheless.
+
+As for analyzing the data, the more I dive into analyzing the data, the more
+I learn. The number of times I said to myself “finally! This is the final
+version” is tremendous, since I always noticed something which could be done in
+a better way afterwards, did more research about it, and I went back and fixed
+a thing or two lol!
 
 ### **Majd**  
 
