@@ -1,4 +1,4 @@
-# Detecting AI-Generated Job Scams: A human and Machine Perspective
+# Detecting AI-Generated Job Scams
 
 ## Project Overview
 
@@ -24,65 +24,13 @@ effective defensive strategies.
 **Can humans still distinguish between legitimate and fraudulent job
 postings when the scam text is written by advanced AI models?**
 
-To address this crucial inquiry, we will also investigate:
+To address this crucial inquiry, we investigated:
 
 * How do genuine and AI-generated scam job postings compare linguistically?
-* How do job seekers react to the presence and prominence of an automated
-    "scam score" or warning signal on job platforms?
+* What markers distinguish AI-written scams from human-written scams?
 
- **Comprehensive Domain Study & Problem Analysis:**
-    [Dive Deeper Here](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
-
----
-
-## Our Approach: A Simulated Job Board Experiment
-
-We are building a **simulated job board** to test how well people can spot
-fake job ads, especially when those ads are created by advanced AI. We also
-want to see if a simple "scam warning" helps them.
-
-Here's our plan:
-
-### **1. Crafting Job Postings**
-
-* **Real Jobs:** We gather authentic job ads from top platforms like
-    LinkedIn and Indeed. These are our legitimate examples.
-* **AI-Enhanced Fake Jobs:** We take existing fake job ads and give them
-    to powerful AIs (like Gemini or GPT). These AIs rewrite them to sound
-    *highly realistic and professional*, but still contain subtle scam
-    elements.
-
-### **2. Testing with Participants**
-
-* We'll recruit participants who are job seekers. They'll browse our
-    simulated job board.
-* Participants will be divided into **four groups**, each seeing a
-    different type of "scam warning" next to the job posts:
-  * **Group A:** No warnings.
-  * **Group B:** A "scam score" (e.g., 7/10 Scam Risk).
-  * **Group C:** A "warning sign" icon (e.g., ⚠️).
-  * **Group D:** A "warning text" (e.g., "Potential Scam").
-* For each job, they'll decide if it's "Legitimate" or "Scam," and tell
-    us how confident they are.
-
-### **3. Analyzing Results**
-
-* We'll compare how accurately each group spotted scams.
-* Crucially, we'll see if AI-written scams are harder to detect than
-    human-written ones.
-* We'll also learn if those "scam warnings" actually help job seekers avoid
-    fraud.
-
-### **Ethical Considerations**
-
-All participants will provide informed consent, can withdraw anytime, and
-their data will be anonymized and kept secure.
-
-### **Possible Limitations**
-
-Our study might face limitations like some "real" jobs being undetected
-scams, AI-crafted scams not being perfectly human-like, or participant bias
-if they are already very scam-aware.
+**Comprehensive Domain Study & Problem Analysis:**
+[Dive Deeper Here](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
 
 ---
 
@@ -93,14 +41,74 @@ involves:
 
 * **Extracting Fake Jobs:** Selecting initial fake job listings.
 * **AI Refining Fake Jobs:** Using LLMs (like Gemini) to make fake jobs
-    super realistic.
+  super realistic.
 * **Cleaning Real Jobs:** Standardizing authentic job postings.
-
 All data is in the
 [`1_datasets`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/1_datasets)
 folder. Scripts are in
 [`2_data_preparation`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/2_data_preparation)
 for full transparency.
+Data exploration steps are documented in
+[`3_data_exploration`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/3_data_exploration)
+
+---
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&duration=5017&pause=1000&color=CF1F4E&width=452&height=64&lines=Data+Analysis)](https://git.io/typing-svg)
+
+### Non-Technical Explanation of Findings
+
+Our project investigates the linguistic patterns found in fake or
+AI-generated job postings by comparing them to authentic human-written
+listings. Using natural language processing (NLP) techniques, we explored
+how language can be a signal of authenticity or deception.
+
+Fake job descriptions often rely on vague or overly persuasive language to
+attract attention. Phrases like "quick hire", "no experience", or "urgent
+need" appeared frequently in fraudulent listings. These kinds of phrases
+are designed to create urgency or appeal to job seekers without offering
+much substance.
+
+We also observed that some AI-generated postings are overly polished or
+mechanically structured.
+
+### Visual Evidence
+
+#### Word Frequency Distribution
+
+This chart shows the most common words used across different types of job
+descriptions. It highlights how certain terms are more frequent in fake or
+AI-generated listings, providing a visual cue to potential fraud.
+
+![Word Frequency Graph](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/4_data_analysis/cleaned_most_frequent_words/all_sections_words_count.png)
+
+---
+
+### Certainty and Confidence in Results
+
+The analysis indicates clear patterns that distinguish fake or
+AI-generated postings from real ones. While the results do not offer
+absolute proof, there is a strong level of confidence in the trends we
+uncovered. Multiple methods (frequency analysis, POS tagging, readability
+scoring, topic modeling) aligned to suggest that language use differs in
+meaningful and detectable ways.
+
+---
+
+### Sources of Error and Limitations
+
+* Some data used in the analysis may be biased toward specific job types
+  or industries.
+* A few AI-generated samples lacked clear labeling, requiring
+  assumption-based classification.
+* NLP methods focus on structure and word use, so they may overlook
+  context, sarcasm, or cultural nuance.
+* Topic modeling was applied to a relatively small dataset, which can
+  affect the stability and generalizability of themes.
+
+Despite these limitations, the overall patterns are consistent and align
+with previous research on text deception and AI language generation.
+
+Explore our analyses and outputs in:
+[`4_data_analysis`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/4_data_analysis)
 
 ---
 
@@ -112,7 +120,7 @@ is to stress-test how we classify deceptions in the age of generative AI,
 contributing to a safer digital job market.
 
 * **Detailed Project Planning & Deliverables:**
-    [Access Our Project Plan](https://docs.google.com/document/d/1i1eVjbVNQgU_a4QyH9LMGibSnDSmWRm3lal7s9J1-GM/edit?tab=t.0)
+[Access Our Project Plan](https://docs.google.com/document/d/1i1eVjbVNQgU_a4QyH9LMGibSnDSmWRm3lal7s9J1-GM/edit?tab=t.0)
 
 ---
 
@@ -121,10 +129,10 @@ contributing to a safer digital job market.
 **The Hypatia Circle** — *"Reserve your right to think, for even to think
 wrongly is better than not to think at all."* — Hypatia of Alexandria
 
-We are The Hypatia Circle—a dedicated team of six women hailing from diverse
-backgrounds across Africa and the Middle East. United by a profound passion
-for data science and an unwavering belief in the transformative power of
-diverse collaboration, we strive to spark meaningful change and innovation
-in the world of data.
+We are The Hypatia Circle—a dedicated team of six women hailing from
+diverse backgrounds across Africa and the Middle East. United by a
+profound passion for data science and an unwavering belief in the
+transformative power of diverse collaboration, we strive to spark
+meaningful change and innovation in the world of data.
 
 [Learn more about the team!](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/993536d48ceb618e12b753593098cbdb1f7b4df1/collaboration)
