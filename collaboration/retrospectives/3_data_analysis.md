@@ -48,7 +48,17 @@ clean. Alaa also supported me in solving some tricky errors, which I really appr
 
 ### **Geehan** ⏳ Not started  
 
-*(To be added)
+## Geehan
+
+So far, this milestone has taken the most time, focus, and research from me.  
+With each milestone, I feel like we’re diving deeper and deeper.  
+But in this particular milestone, I truly feel the progress I’ve made and the
+awareness I’ve gained about the field and what we’re actually doing. I didn’t
+feel as lost during this milestone compared to the previous one.
+
+From a technical perspective, I’ve developed a really good relationship with
+GitHub, learned a lot using Google Colab, and I’m genuinely proud of the effort
+I put into this milestone and everything I’ve learned from it.
 
 ### **Aseel**
 
