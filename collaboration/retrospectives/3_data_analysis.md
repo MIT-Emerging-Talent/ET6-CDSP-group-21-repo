@@ -69,15 +69,15 @@ It was days of coding and fixing issues just to get clean data. After that,
 the analysis part started — still a bit challenging, but definitely more rewarding.
 Overall, I learned a lot from this phase.
 
-### **Justina** ⏳ Not submitted  
+### **Justina**
 
-*(To be added)
+![Justina's Retrospective](retrospectives/justina-retro.png)
 
 ### **Alaa**
 
 I gained work experience from these milestones, both in soft and technical skills.
 From data exploration and initial analysis to full data analysis, I delved into
- TF-IDF.
+TF-IDF.
 I faced some installation errors on GitHub, but I was able to fix them quickly.
 I also created charts and performed analysis using Excel.  
 However, I understand the importance of Python and am familiar with using
