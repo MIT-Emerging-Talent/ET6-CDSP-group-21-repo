@@ -1,0 +1,65 @@
+[33m00a3f99[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mreadability[m[33m)[m Fix formatting/lint issues in readability.ipynb
+[33m1640673[m Fix linting errors in readability notebook
+[33m5a9e9b0[m Fix linting errors in readability notebook
+[33mee72627[m analysis
+[33m7fa997e[m Fix linting for readability.ipynb using nbqa and ruff
+[33m7d5ed02[m Format readability.ipynb to pass CI
+[33m547c246[m Format readability.ipynb to pass CI
+[33m2c84b01[m readability
+[33m868c9f0[m readability
+[33m53c9486[m readability
+[33m31dac5a[m readability
+[33m97f24ff[m readability
+[33m81583b9[m Fix linting: add import and replace bare except
+[33m61c0632[m Fix linting: add import and replace bare except
+[33m359933e[m Fix formatting for readability notebook
+[33m5031cce[m analysis
+[33m4096c1c[m[33m ([m[1;31morigin/all_most_frequent_words[m[33m, [m[1;32mmain[m[33m, [m[1;32mllm-refine[m[33m)[m Merge pull request #73 from MIT-Emerging-Talent/llm-refine
+[33m1559fd4[m[33m ([m[1;31morigin/llm-refine[m[33m)[m llm-refine
+[33me4c6a87[m Merge pull request #72 from MIT-Emerging-Talent/llm-refine
+[33m2254bd6[m added more llm refined posts
+[33mbda0a38[m Merge pull request #71 from MIT-Emerging-Talent/llm-refine
+[33m5d1e823[m llm-refine
+[33maaa1c96[m added more refined posts in cleaned data
+[33m6c2dc0b[m fixed ci checks errors
+[33m9a6865f[m worked on the code
+[33mc08ba95[m Merge branch 'main' of https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo
+[33mef272de[m worked on refinement code
+[33mcab41b1[m added a section for cleaning the data in the llm refinement code
+[33m6d242e9[m Merge pull request #65 from MIT-Emerging-Talent/urgency-tone
+[33ma82c4cf[m Merge pull request #68 from MIT-Emerging-Talent/refining-data
+[33m4535e57[m[33m ([m[1;31morigin/refining-data[m[33m, [m[1;32mrefining-data[m[33m)[m refined
+[33m172dd04[m Merge pull request #67 from MIT-Emerging-Talent/refine-data-84
+[33m0123c7e[m[33m ([m[1;31morigin/refine-data-84[m[33m, [m[1;32mrefine-data-84[m[33m)[m refined jobs
+[33mca1e3af[m Merge pull request #66 from MIT-Emerging-Talent/refine_84_fake_jobs_majd
+[33m5068434[m[33m ([m[1;31morigin/refine_84_fake_jobs_majd[m[33m, [m[1;32mrefine_84_fake_jobs_majd[m[33m)[m refined fake jobs
+[33m9a7af93[m[33m ([m[1;32mdata3[m[33m)[m generated more llm-refined posts and fixed lint errors
+[33mefd3bc0[m[33m ([m[1;31morigin/urgency-tone[m[33m)[m fix linting error
+[33mc364bd9[m fix formatting error
+[33m9ddb768[m Merge pull request #64 from MIT-Emerging-Talent/data3
+[33mf485d9b[m Analyze urgency tone using sentiment polarity across job post types (real, fake-human, fake-AI); includes data prep, scoring, and visualization.
+[33mbb30884[m[33m ([m[1;31morigin/data3[m[33m)[m Fix ruff formatting for CI
+[33me566382[m Fix ruff formatting for CI
+[33mc8ea507[m Final E501 fix: shorten long print line
+[33me285a2f[m Fix linting issues with nbqa and ruff
+[33mf42cac0[m Fix line-length linting errors (E501) in notebook
+[33maf4fece[m Format notebook to comply with Ruff
+[33m728cbc7[m Fix formatting to pass Ruff lint
+[33m46c9feb[m data refining
+[33m7c6dbad[m chore: adjust flake8 max line length to 120
+[33m1aaa729[m data refining
+[33m1489456[m[33m ([m[1;32mrefine-84-fake-jobs-aseel[m[33m)[m worked on data cleaning
+[33m3e55655[m Merge pull request #63 from MIT-Emerging-Talent/updated_cleaned_data
+[33m027f835[m[33m ([m[1;31morigin/updated_cleaned_data[m[33m, [m[1;31morigin/cleaned_data[m[33m)[m updated the 1_datasets folder
+[33m11fc3e0[m updated the cleaned data folder in 1_datasets. you'll find everything you need in cleaned_data folder, fake jobs, real jobs, and llm refined fake jobs.
+[33m70e01bd[m Merge pull request #59 from MIT-Emerging-Talent/refine-84-fake-jobs-aseel
+[33mc93b08f[m[33m ([m[1;31morigin/refine-84-fake-jobs-aseel[m[33m)[m Refined fake jobs batch - Aseel
+[33m2b466f7[m Revert "update"
+[33m9a78ba8[m update
+[33mde8d8ca[m[33m ([m[1;32mn_gram_analysis[m[33m)[m Merge pull request #56 from MIT-Emerging-Talent/data_preprocessing
+[33m2ce65e8[m fixed formatting errors
+[33md30d7da[m Merge branch 'main' into data_preprocessing
+[33m0899037[m added new fakejobs refinements steps
+[33m81e7512[m Merge branch 'main' of https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo
+[33mbc4a77b[m Update Exploration File
+[33m28fb2c5[m[33m ([m[1;31morigin/Part-of-Speech-Tagging[m[33m)[m organized 1_datasets folder
