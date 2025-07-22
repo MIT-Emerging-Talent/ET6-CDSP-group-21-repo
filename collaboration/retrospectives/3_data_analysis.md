@@ -62,7 +62,6 @@ learned a lot using Google Colab,
 and I’m genuinely proud of the effort I put into this milestone  
 and everything I’ve learned from it.
 
-
 ### **Aseel**
 
 This milestone was honestly the toughest so far. We shifted our focus from the
