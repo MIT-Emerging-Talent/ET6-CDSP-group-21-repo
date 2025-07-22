@@ -2,25 +2,24 @@ import pandas as pd
 import os
 
 # --- Configuration ---
-# Base directory where all your 'batch_100_X_refined.csv' files are located.
-# This should be '1_dataset/fakejobs_to_refine/' relative to your repository root.
-# Assuming you run this script from the repository root or a similar relative path.
-# If you run this script from '2_data_preparation/', adjust relative path:
-# REFINED_FILES_DIR = os.path.abspath(os.path.join(os.getcwd(), os.pardir, '1_dataset', 'fakejobs_to_refine'))
-
-# Let's assume you'll run this from the root of your 'ET6-CDSP-group-21-repo'
-# or you adjust this path to be absolute.
-REFINED_FILES_DIR = '../1_datasets/fakejobs_refined/'
+REFINED_FILES_DIR = "../1_datasets/fakejobs_refined/"
 
 # List of expected refined batch filenames.
-# Adjust this list if your batch names are different or you have more/fewer batches.
-# Based on your previous setup, these would be 'A', 'B', 'C', 'D', 'E'.
-# If you have a 'batch_84_Justina_refined.csv' from a unique split, add it here.
-EXPECTED_BATCH_SUFFIXES = ['Alaa', 'Aseel', 'Justina', 'Majd', 'Rouaa', 'Geehan'] # Add more if you split into more files
-PREFIX = "batch_84_" # Prefix used when splitting the files
+EXPECTED_BATCH_SUFFIXES = [
+    "Alaa",
+    "Aseel",
+    "Justina",
+    "Majd",
+    "Rouaa",
+    "Geehan",
+]  # Add more if you split into more files
+PREFIX = "batch_84_"  # Prefix used when splitting the files
 
 # Output filename for the combined dataset
-OUTPUT_COMBINED_CSV = '../1_datasets/aegean500_vs_Hypatia500_datasets/aegean500_fakejobs_llmrefined.csv'
+OUTPUT_COMBINED_CSV = (
+    "../1_datasets/aegean500_vs_Hypatia500_datasets/aegean500_fakejobs_llmrefined.csv"  # noqa: E501
+)
+
 
 # --- Script Logic ---
 def combine_refined_datasets(input_dir, suffixes, prefix, output_path):
@@ -46,11 +45,13 @@ def combine_refined_datasets(input_dir, suffixes, prefix, output_path):
                 print(f"  Error loading {filename}: {e}")
                 print(f"  Skipping {filename} due to load error.")
         else:
-            print(f"  File not found: {filename} (might still be processing or pushed)")
+            print(f"  File not found: {filename} (might still be processing or pushed)")  # noqa: E501
 
     if not all_dfs:
         print("No refined files were found or successfully loaded. Cannot combine.")
-        print("Please ensure your team has pushed their refined CSVs and paths are correct.")
+        print(
+            "Please ensure your team has pushed their refined CSVs and paths are correct."
+        )  # noqa: E501
         return
 
     print(f"\nSuccessfully loaded {found_files_count} refined batch files.")
@@ -61,33 +62,29 @@ def combine_refined_datasets(input_dir, suffixes, prefix, output_path):
 
         # Optional: Remove any potential duplicates based on 'job_id'
         # This is a good safeguard, though ideally not needed if splitting was perfect.
-        if 'job_id' in combined_df.columns:
+        if "job_id" in combined_df.columns:
             initial_rows = len(combined_df)
-            combined_df.drop_duplicates(subset=['job_id'], inplace=True)
+            combined_df.drop_duplicates(subset=["job_id"], inplace=True)
             if len(combined_df) < initial_rows:
-                print(f"  Removed {initial_rows - len(combined_df)} duplicate job entries.")
+                print(
+                    f"  Removed {initial_rows - len(combined_df)} duplicate job entries."
+                )
         else:
             print("  'job_id' column not found for checking duplicates.")
 
         # Save the final combined DataFrame
         combined_df.to_csv(output_path, index=False)
-        print(f"\nSuccessfully combined {len(combined_df)} refined jobs into: {output_path}")
+        print(
+            f"\nSuccessfully combined {len(combined_df)} refined jobs into: {output_path}"
+        )  # noqa: E501
         print("You can now proceed with your NLP analysis on this file.")
 
     except Exception as e:
         print(f"An error occurred during concatenation or saving: {e}")
 
+
 # --- Run the combination process ---
 if __name__ == "__main__":
-    # If you have a specific filename like 'batch_84_Justina_refined.csv' that
-    # doesn't fit the batch_100_X pattern, you'll need to add its full path
-    # to a list and pass it to a slightly modified function, or add its suffix
-    # to the EXPECTED_BATCH_SUFFIXES list if its name still fits the pattern.
-    # For example, if 'batch_84_Justina.csv' was 'batch_100_F.csv', then add 'F' to the list.
-    # If it's a completely different naming scheme, you'd need to list it explicitly:
-    # Example:
-    # OTHER_REFINED_FILES = ['batch_84_Justina_refined.csv']
-    # # Then modify the loop in combine_refined_datasets to also check these.
-    # # For simplicity here, we stick to the batched naming scheme.
-
-    combine_refined_datasets(REFINED_FILES_DIR, EXPECTED_BATCH_SUFFIXES, PREFIX, OUTPUT_COMBINED_CSV)
+    combine_refined_datasets(
+        REFINED_FILES_DIR, EXPECTED_BATCH_SUFFIXES, PREFIX, OUTPUT_COMBINED_CSV
+    )  # noqa: E501
