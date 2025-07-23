@@ -1,4 +1,4 @@
-# Detecting AI-Generated Job Scams
+# Detecting AI-Generated Job Scams: A human and Machine Perspective
 
 ## Project Overview
 
@@ -34,6 +34,32 @@ To address this crucial inquiry, we investigated:
 
 ---
 
+## Our Approach
+
+We analyzed a curated set of real and fake job postings to study how
+AI-generated scams differ linguistically from human-written real jobs.
+We also refined each fake post using LLMs to create realistic yet
+deceptive examples.
+
+## Methodology
+
+We used a single dataset sourced from the "Fake JobPostings" dataset
+available on Kaggle. This dataset contains 17,880 job postings,
+ of which only 866 are labeled as fake.
+To enhance the realism of these fraudulent listings, we refined each one
+using a large language model (LLM) to mimic legitimate language patterns
+while preserving deceptive cues.
+
+We acknowledge that this dataset is highly imbalanced, with 95.14% of
+entries labeled as real. While this did not affect our exploratory
+analysis, it posed challenges for clustering tasks. To mitigate this,
+we created a balanced sample consisting of 866 real and 866 fake job
+listings.
+
+All data analysis and exploration were performed on this enriched dataset.
+
+---
+
 ## Data Processing Pipeline
 
 Our robust pipeline prepares all the data needed for the experiment. It
@@ -43,18 +69,40 @@ involves:
 * **AI Refining Fake Jobs:** Using LLMs (like Gemini) to make fake jobs
   super realistic.
 * **Cleaning Real Jobs:** Standardizing authentic job postings.
+
 All data is in the
 [`1_datasets`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/1_datasets)
 folder. Scripts are in
 [`2_data_preparation`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/2_data_preparation)
 for full transparency.
-Data exploration steps are documented in
+
+Explore our data exploration notebooks:
 [`3_data_exploration`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/3_data_exploration)
 
 ---
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=24&duration=5017&pause=1000&color=CF1F4E&width=452&height=64&lines=Data+Analysis)](https://git.io/typing-svg)
 
-### Non-Technical Explanation of Findings
+## Data Analysis
+
+Explore our analyses and outputs in:
+[`4_data_analysis`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/4_data_analysis)
+
+## Hypotheses
+
+We explored two main hypotheses throughout our project:
+
+1. **Main Hypothesis:**  
+   Human-written and AI-generated fake job listings differ
+   significantly in their linguistic patterns from real job listings.
+
+2. **Sub-Hypothesis:**  
+   AI-generated scams are more polished and persuasive, making them
+   potentially harder to detect than human-written scams.
+
+Our visual analyses support both hypotheses by revealing distinct
+word usage patterns, repetition in structure, and thematic exaggeration
+in fake listings.
+
+## Non-Technical Explanation of Findings
 
 Our project investigates the linguistic patterns found in fake or
 AI-generated job postings by comparing them to authentic human-written
@@ -68,7 +116,20 @@ are designed to create urgency or appeal to job seekers without offering
 much substance.
 
 We also observed that some AI-generated postings are overly polished or
-mechanically structured.
+mechanically structured. Readability tests showed unusual sentence
+complexity or artificial smoothness, contrasting with the more varied and
+natural tone found in human-written descriptions.
+
+Grammar analysis, through Part-of-Speech tagging, revealed overuse of
+adjectives and repetitive sentence patterns in fake posts. Meanwhile,
+named entity recognition sometimes flagged company or location names that
+appeared fabricated or oddly placed.
+
+Topic modeling and sentiment analysis (which have been completed) helped
+identify recurring themes such as exaggerated job benefits, promises of
+remote work, and overly positive tones. These emotional or thematic
+markers differ from more neutral or balanced wording found in legitimate
+listings.
 
 ### Visual Evidence
 
@@ -95,20 +156,28 @@ meaningful and detectable ways.
 
 ### Sources of Error and Limitations
 
-* Some data used in the analysis may be biased toward specific job types
-  or industries.
-* A few AI-generated samples lacked clear labeling, requiring
-  assumption-based classification.
+* The dataset is highly imbalanced, with only 4.86% of listings labeled
+  as fake. While this had no major impact during exploratory analysis,
+  it limited the effectiveness of some downstream tasks such as clustering.
+  To address this, a balanced random sample of 866 real and 866 fake
+  jobs was used in those specific steps.
+
+* While there was an initial concern that fake jobs might cluster into
+  different job types than real jobs, clustering analysis showed a high
+  degree of overlap in job categories across both classes, suggesting
+  no major bias in job type distribution.
+
+* A few AI-generated samples lacked clear labeling, requiring some
+  manual assumption-based classification.
+
 * NLP methods focus on structure and word use, so they may overlook
-  context, sarcasm, or cultural nuance.
+  deeper context, sarcasm, or cultural nuance.
+
 * Topic modeling was applied to a relatively small dataset, which can
   affect the stability and generalizability of themes.
 
 Despite these limitations, the overall patterns are consistent and align
 with previous research on text deception and AI language generation.
-
-Explore our analyses and outputs in:
-[`4_data_analysis`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/4_data_analysis)
 
 ---
 
@@ -119,8 +188,8 @@ battle of **AI versus AI**, with human job seekers in the middle. Our goal
 is to stress-test how we classify deceptions in the age of generative AI,
 contributing to a safer digital job market.
 
-* **Detailed Project Planning & Deliverables:**
-[Access Our Project Plan](https://docs.google.com/document/d/1i1eVjbVNQgU_a4QyH9LMGibSnDSmWRm3lal7s9J1-GM/edit?tab=t.0)
+* **Detailed Project Planning & Deliverables:**  
+  [Access Our Project Plan](https://docs.google.com/document/d/1i1eVjbVNQgU_a4QyH9LMGibSnDSmWRm3lal7s9J1-GM/edit?tab=t.0)
 
 ---
 
