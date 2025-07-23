@@ -75,16 +75,13 @@ All data is in the
 folder. Scripts are in
 [`2_data_preparation`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/2_data_preparation)
 for full transparency.
-
 Explore our data exploration notebooks:
 [`3_data_exploration`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/3_data_exploration)
-
----
-
-## Data Analysis
-
 Explore our analyses and outputs in:
 [`4_data_analysis`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/4_data_analysis)
+
+---
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Data+Analysis)](https://git.io/typing-svg)
 
 ## Hypotheses
 
