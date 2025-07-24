@@ -113,20 +113,7 @@ are designed to create urgency or appeal to job seekers without offering
 much substance.
 
 We also observed that some AI-generated postings are overly polished or
-mechanically structured. Readability tests showed unusual sentence
-complexity or artificial smoothness, contrasting with the more varied and
-natural tone found in human-written descriptions.
-
-Grammar analysis, through Part-of-Speech tagging, revealed overuse of
-adjectives and repetitive sentence patterns in fake posts. Meanwhile,
-named entity recognition sometimes flagged company or location names that
-appeared fabricated or oddly placed.
-
-Topic modeling and sentiment analysis (which have been completed) helped
-identify recurring themes such as exaggerated job benefits, promises of
-remote work, and overly positive tones. These emotional or thematic
-markers differ from more neutral or balanced wording found in legitimate
-listings.
+mechanically structured.
 
 ### Visual Evidence
 
