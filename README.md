@@ -143,8 +143,6 @@ meaningful and detectable ways.
 * The dataset is highly imbalanced, with only 4.86% of listings labeled
   as fake. While this had no major impact during exploratory analysis,
   it limited the effectiveness of some downstream tasks such as clustering.
-  To address this, a balanced random sample of 866 real and 866 fake
-  jobs was used in those specific steps.
 
 * While there was an initial concern that fake jobs might cluster into
   different job types than real jobs, clustering analysis showed a high
