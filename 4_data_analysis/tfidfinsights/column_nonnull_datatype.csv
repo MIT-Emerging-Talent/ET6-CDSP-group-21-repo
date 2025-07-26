@@ -1,0 +1,22 @@
+Data columns (total 18 columns):
+ #   Column                 Non-Null Count  Dtype  
+---  ------                 --------------  -----  
+ 0   job_id                 17880 non-null  int64  
+ 1   title                  17880 non-null  object 
+ 2   location               17534 non-null  object 
+ 3   department             6333 non-null   object 
+ 4   salary_range           2868 non-null   object 
+ 5   company_profile        14572 non-null  object 
+ 6   description            17879 non-null  object 
+ 7   requirements           15185 non-null  object 
+ 8   benefits               10670 non-null  object 
+ 9   telecommuting          17880 non-null  int64  
+ 10  has_company_logo       17880 non-null  int64  
+ 11  has_questions          17880 non-null  int64  
+ 12  employment_type        14409 non-null  object 
+ 13  required_experience    10830 non-null  object 
+ 14  required_education     9775 non-null   object 
+ 15  industry               12977 non-null  object 
+ 16  function               11425 non-null  object 
+ 17  fraudulent             17880 non-null  int64  
+dtypes: int64(5), object(13)
