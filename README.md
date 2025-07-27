@@ -140,25 +140,13 @@ AI-generated listings, providing a visual cue to potential fraud.
 
 ### XGBoost Classifier Performance
 
-![XGBoost Confusion Matrix](
-images/output.png)
+Our XGBoost model achieved **100% accuracy** —
+but that perfection revealed **stylistic data leakage**.
 
-We trained an XGBoost classifier using combined TF-IDF and NER features.
-The model achieved **100% accuracy, precision, recall, and F1-score**
-on the test set.
+![XGBoost Confusion Matrix](images/output.png)
 
-However, this perfect performance is a signal of **stylistic data leakage** —
-the model exploited distinct linguistic patterns between our two sources:
-
-* **AI-generated fake jobs** included generic, aspirational buzzwords like
-  *"unparalleled"*, *"strategic"*, and *"exceptional"*.
-* **Real job descriptions** were more specific and grounded, using terms like
-  *"insurance"*, *"payroll"*, and *"employee"*.
-
-As a result, the model learned to distinguish **data source styles**, not
-universal fraud patterns — highlighting the need for more diverse datasets
-in future work.
-
+> The model learned to identify *writing styles*
+> (buzzwords vs. specifics), not universal scam traits.
 ---
 
 ### Certainty and Confidence in Results
@@ -213,13 +201,11 @@ contributing to a safer digital job market.
 
 ## The Hypatia Circle
 
-**The Hypatia Circle** — *"Reserve your right to think, for even to think
-wrongly is better than not to think at all."* — Hypatia of Alexandria
+> "Reserve your right to think, for even to think wrongly is better than not to
+> think at all." – Hypatia of Alexandria
 
-We are The Hypatia Circle—a dedicated team of six women hailing from
-diverse backgrounds across Africa and the Middle East. United by a
-profound passion for data science and an unwavering belief in the
-transformative power of diverse collaboration, we strive to spark
-meaningful change and innovation in the world of data.
+We are six women from Africa and the Middle East, united by a passion for data
+science and diverse collaboration. We strive to spark innovation and safety in
+digital spaces.
 
 [Learn more about the team!](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/993536d48ceb618e12b753593098cbdb1f7b4df1/collaboration)
