@@ -18,10 +18,13 @@ Commission, reported losses from job opportunity scams soared to
 2023**. These escalating figures underscore the urgent need for new,
 effective defensive strategies.
 
+**Comprehensive Domain Study & Problem Analysis:**
+[Dive Deeper Here](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
+
 ---
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Research+Question)](https://git.io/typing-svg)
 
-**Can humans still distinguish between legitimate and fraudulent job
+**Can humans and machines still distinguish between legitimate and fraudulent job
 postings when the scam text is written by advanced AI models?**
 
 To address this crucial inquiry, we investigated:
@@ -29,12 +32,9 @@ To address this crucial inquiry, we investigated:
 * How do genuine and AI-generated scam job postings compare linguistically?
 * What markers distinguish AI-written scams from human-written scams?
 
-**Comprehensive Domain Study & Problem Analysis:**
-[Dive Deeper Here](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)
-
 ---
 
-## Our Approach
+## Detection Strategy & Workflow
 
 We analyzed a curated set of real and fake job postings to study how
 AI-generated scams differ linguistically from human-written real jobs.
@@ -124,6 +124,27 @@ descriptions. It highlights how certain terms are more frequent in fake or
 AI-generated listings, providing a visual cue to potential fraud.
 
 ![Word Frequency Graph](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/4_data_analysis/cleaned_most_frequent_words/all_sections_words_count.png)
+
+### XGBoost Classifier Performance
+
+![XGBoost Confusion Matrix](
+images/output.png)
+
+We trained an XGBoost classifier using combined TF-IDF and NER features.
+The model achieved **100% accuracy, precision, recall, and F1-score**
+on the test set.
+
+However, this perfect performance is a signal of **stylistic data leakage** —
+the model exploited distinct linguistic patterns between our two sources:
+
+* **AI-generated fake jobs** included generic, aspirational buzzwords like
+  *"unparalleled"*, *"strategic"*, and *"exceptional"*.
+* **Real job descriptions** were more specific and grounded, using terms like
+  *"insurance"*, *"payroll"*, and *"employee"*.
+
+As a result, the model learned to distinguish **data source styles**, not
+universal fraud patterns — highlighting the need for more diverse datasets
+in future work.
 
 ---
 
