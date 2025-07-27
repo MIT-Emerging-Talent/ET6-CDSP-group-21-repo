@@ -1,6 +1,10 @@
 # Datasets
 
-## Raw Fake Jobs
+Only one dataset was used for the analysis process of this project, that is the
+**Employment Scam Aegean Dataset**. All data processing, analysis, and
+observations are mainly based on this dataset.
+
+## Aegean Raw Data
 
 This dataset can be found in **Kaggle**, referred to as **_'Recruitment Scam
 Dataset'_**, or in
@@ -29,29 +33,33 @@ for developing and testing machine learning models to detect fraudulent job post
 
 The main goal of this data is to clean it based on specific features that we aim
 to use in the job board, organize it, refine it by Gemini, then use it to test
-humans' ability to detect if the job provided is legitimate or fraudulent when
-it's written by AI, since it mimics real job posts.
+humans' and machines' ability to detect if the job provided is legitimate or
+fraudulent when it's written by AI, since it mimics real job posts while
+maintaining fraudulent posts main features.
+
+[**Raw Dataset File Path.**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/28fb2c5be79be0883c8366fb2b4bacbbec9c6809/1_datasets/aegean_raw_data)
 
 ---
 
-## Processed Fake Jobs
+## Cleaned Data
 
-The raw data was collected between **2012** and **2014**, before the development
-of AI, therefore, **_thirty_** fake job posts were randomly selected from **_raw
-fake jobs_**
-file and used an algorithm to automatically refine them, using the Gemini API to
-generate AI-enhanced fraudulent postings.
+There're three files in the [`../1_datasets/cleaned_data`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/1559fd4f70f49837b9626a46db57799e8c5a39da/1_datasets/cleaned_data)
+folder:
 
----
+### [Fake Job Posts](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/14894562ec2b519501aaed5b0525f54313fdfb0f/1_datasets/cleaned_data/fake_jobs.csv)
 
-## Raw Real Jobs
+- Includes 866 fake job posts which were extracted from the raw dataset. Shape
+of the dataset is (866, 11) after cleaning.
 
-This dataset was manually collected by **_The Hypatia Circle_** group members.
-**_Thirty_** real job postings were collected from **_LinkedIn_** and **_Indeed_**.
-Each entry in this dataset includes **_job title, company name, full job description,_**
-**_announcement platform, URL, and date_**. All jobs were posted in 2025.
+### [Real Job Posts](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/14894562ec2b519501aaed5b0525f54313fdfb0f/1_datasets/cleaned_data/real_jobs.csv)
 
-This data is only internally available via the shared link.
+- Includes 17014 real job posts which were extracted from the raw dataset. Shape
+of the dataset is (17014, 11) after cleaning.
+  
+### [LLM-Refined Fake Job Posts](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/1559fd4f70f49837b9626a46db57799e8c5a39da/1_datasets/cleaned_data/llm_refined_fake_posts2.csv)
+
+- Includes 866 fake job posts which were all LLM-refined. Shape of the dataset
+is (866, 15) after cleaning.
 
 ---
 
@@ -82,3 +90,5 @@ There was **_no study_** that specifically tested humans' ability to differentia
 if a job post is legitimate or fraudulent when the post is AI-generated that we
 know of, hence we're planning to use this study as a foundation for the process
 of building and analyzing the job board.
+
+[**Past Relevant Studies File Path.**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/549942e9039edafdae73dff7d904ec97fa432148/1_datasets/past_relevant_studies.md)
