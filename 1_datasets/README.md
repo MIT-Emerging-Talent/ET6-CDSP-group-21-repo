@@ -5,7 +5,7 @@ Only one dataset was used for the analysis process of this project, that is the
 observations are mainly based on this dataset, along with 500 real job posts
 which were extracted from **Indeed.**
 
-## Aegean Raw Data
+## [Aegean Raw Data](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/28fb2c5be79be0883c8366fb2b4bacbbec9c6809/1_datasets/aegean_raw_data)
 
 This dataset can be found in **Kaggle**, referred to as **_'Recruitment Scam
 Dataset'_**, or in
@@ -37,8 +37,6 @@ to use in the job board, organize it, refine it by Gemini, then use it to test
 humans' and machines' ability to detect if the job provided is legitimate or
 fraudulent when it's written by AI, since it mimics real job posts while
 maintaining fraudulent posts main features.
-
-[**Aegean Raw Dataset.**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/28fb2c5be79be0883c8366fb2b4bacbbec9c6809/1_datasets/aegean_raw_data)
 
 ---
 
@@ -86,6 +84,10 @@ is the fact that they were extracted from different sources.
 - Includes 500 fake jobs which were all LLM-refined. The difference between
 this file and [`../1_datasets/cleaned_data/llm_refined_fake_posts2.csv`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/1559fd4f70f49837b9626a46db57799e8c5a39da/1_datasets/cleaned_data/llm_refined_fake_posts2.csv)
 is the fact that they both read files that followed different cleaning process.
+
+- This file was a merge output between:
+  - [`/1_datasets/fakejobs_to_refine`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/08990371387dcddd06fb6f3361478bf4c33d45fb/1_datasets/fakejobs_to_refine).
+  - [`../1_datasets/fakejobs_refined`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/8251dfa7db2ae2e0b35c3e619dd3c7f6e52af037/1_datasets/fakejobs_refined).
 
 ---
 
