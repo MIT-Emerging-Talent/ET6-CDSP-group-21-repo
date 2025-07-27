@@ -2,7 +2,8 @@
 
 Only one dataset was used for the analysis process of this project, that is the
 **Employment Scam Aegean Dataset**. All data processing, analysis, and
-observations are mainly based on this dataset.
+observations are mainly based on this dataset, along with 500 real job posts
+which were extracted from **Indeed.**
 
 ## Aegean Raw Data
 
@@ -37,29 +38,54 @@ humans' and machines' ability to detect if the job provided is legitimate or
 fraudulent when it's written by AI, since it mimics real job posts while
 maintaining fraudulent posts main features.
 
-[**Raw Dataset File Path.**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/28fb2c5be79be0883c8366fb2b4bacbbec9c6809/1_datasets/aegean_raw_data)
+[**Aegean Raw Dataset.**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/28fb2c5be79be0883c8366fb2b4bacbbec9c6809/1_datasets/aegean_raw_data)
 
 ---
 
 ## Cleaned Data
 
-There're three files in the [`../1_datasets/cleaned_data`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/1559fd4f70f49837b9626a46db57799e8c5a39da/1_datasets/cleaned_data)
+There are three files in the [`../1_datasets/cleaned_data`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/1559fd4f70f49837b9626a46db57799e8c5a39da/1_datasets/cleaned_data)
 folder:
 
 ### [Fake Job Posts](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/14894562ec2b519501aaed5b0525f54313fdfb0f/1_datasets/cleaned_data/fake_jobs.csv)
 
-- Includes 866 fake job posts which were extracted from the raw dataset. Shape
+- Includes 866 fake job posts which were extracted from the Aegean raw dataset. Shape
 of the dataset is (866, 11) after cleaning.
 
 ### [Real Job Posts](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/14894562ec2b519501aaed5b0525f54313fdfb0f/1_datasets/cleaned_data/real_jobs.csv)
 
-- Includes 17014 real job posts which were extracted from the raw dataset. Shape
-of the dataset is (17014, 11) after cleaning.
+- Includes 17014 real job posts which were extracted from the Aegean raw dataset.
+Shape of the dataset is (17014, 11) after cleaning.
   
 ### [LLM-Refined Fake Job Posts](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/1559fd4f70f49837b9626a46db57799e8c5a39da/1_datasets/cleaned_data/llm_refined_fake_posts2.csv)
 
 - Includes 866 fake job posts which were all LLM-refined. Shape of the dataset
 is (866, 15) after cleaning.
+
+---
+
+## Aegean and Hypatia Datasets
+
+There are three files in the [`../1_datasets/aegean500_vs_hypatia500_datasets`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/e46c53bf17c3d608c8e67b607300d9faf4b6043e/1_datasets/aegean500_vs_hypatia500_datasets)
+folder:
+
+### [**Fake Job Posts**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/e46c53bf17c3d608c8e67b607300d9faf4b6043e/1_datasets/aegean500_vs_hypatia500_datasets/aegean500_fakejobs.csv)
+
+- Includes 500 fake job posts which were extracted from the Aegean raw dataset. The
+difference between this file and the one in [`../1_datasets/cleaned_data/fake_jobs.csv`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/14894562ec2b519501aaed5b0525f54313fdfb0f/1_datasets/cleaned_data/fake_jobs.csv)
+is that they both followed different data cleaning process.
+
+### [**Real Job Posts**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/e46c53bf17c3d608c8e67b607300d9faf4b6043e/1_datasets/aegean500_vs_hypatia500_datasets/hypatia500_realjobs.csv)
+
+- Includes 500 real job posts which were extracted from Indeed. The difference
+between this file and the one in [`../1_datasets/cleaned_data/real_jobs.csv`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/14894562ec2b519501aaed5b0525f54313fdfb0f/1_datasets/cleaned_data/real_jobs.csv)
+is the fact that they were extracted from different sources.
+
+### [**LLM-Refined Fake Job Posts**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/e46c53bf17c3d608c8e67b607300d9faf4b6043e/1_datasets/aegean500_vs_hypatia500_datasets/aegean500_fakejobs_llmrefined.csv)
+
+- Includes 500 fake jobs which were all LLM-refined. The difference between
+this file and [`../1_datasets/cleaned_data/llm_refined_fake_posts2.csv`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/1559fd4f70f49837b9626a46db57799e8c5a39da/1_datasets/cleaned_data/llm_refined_fake_posts2.csv)
+is the fact that they both read files that followed different cleaning process.
 
 ---
 
