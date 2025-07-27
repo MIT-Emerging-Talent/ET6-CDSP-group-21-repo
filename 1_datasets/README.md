@@ -5,7 +5,7 @@ Only one dataset was used for the analysis process of this project, that is the
 observations are mainly based on this dataset, along with 500 real job posts
 which were extracted from **Indeed.**
 
-## [Aegean Raw Data](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/28fb2c5be79be0883c8366fb2b4bacbbec9c6809/1_datasets/aegean_raw_data)
+## Aegean Raw Data
 
 This dataset can be found in **Kaggle**, referred to as **_'Recruitment Scam
 Dataset'_**, or in
@@ -37,6 +37,8 @@ to use in the job board, organize it, refine it by Gemini, then use it to test
 humans' and machines' ability to detect if the job provided is legitimate or
 fraudulent when it's written by AI, since it mimics real job posts while
 maintaining fraudulent posts main features.
+
+[**File Path to Aegean Raw Data**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/28fb2c5be79be0883c8366fb2b4bacbbec9c6809/1_datasets/aegean_raw_data)
 
 ---
 
