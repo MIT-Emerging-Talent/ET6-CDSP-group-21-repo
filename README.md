@@ -75,12 +75,12 @@ All data is in the
 folder. Scripts are in
 [`2_data_preparation`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/2_data_preparation)
 for full transparency.
-
 Explore our data exploration notebooks:
 [`3_data_exploration`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/3_data_exploration)
+Explore our analyses and outputs in:
+[`4_data_analysis`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/4_data_analysis)
 
 ---
-
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Data+Analysis)](https://git.io/typing-svg)
 
 ## Hypotheses
@@ -113,7 +113,20 @@ are designed to create urgency or appeal to job seekers without offering
 much substance.
 
 We also observed that some AI-generated postings are overly polished or
-mechanically structured.
+mechanically structured. Readability tests showed unusual sentence
+complexity or artificial smoothness, contrasting with the more varied and
+natural tone found in human-written descriptions.
+
+Grammar analysis, through Part-of-Speech tagging, revealed overuse of
+adjectives and repetitive sentence patterns in fake posts. Meanwhile,
+named entity recognition sometimes flagged company or location names that
+appeared fabricated or oddly placed.
+
+Topic modeling and sentiment analysis (which have been completed) helped
+identify recurring themes such as exaggerated job benefits, promises of
+remote work, and overly positive tones. These emotional or thematic
+markers differ from more neutral or balanced wording found in legitimate
+listings.
 
 ### Visual Evidence
 
@@ -127,25 +140,13 @@ AI-generated listings, providing a visual cue to potential fraud.
 
 ### XGBoost Classifier Performance
 
-![XGBoost Confusion Matrix](
-images/output.png)
+Our XGBoost model achieved **100% accuracy** —
+but that perfection revealed **stylistic data leakage**.
 
-We trained an XGBoost classifier using combined TF-IDF and NER features.
-The model achieved **100% accuracy, precision, recall, and F1-score**
-on the test set.
+![XGBoost Confusion Matrix](images/output.png)
 
-However, this perfect performance is a signal of **stylistic data leakage** —
-the model exploited distinct linguistic patterns between our two sources:
-
-* **AI-generated fake jobs** included generic, aspirational buzzwords like
-  *"unparalleled"*, *"strategic"*, and *"exceptional"*.
-* **Real job descriptions** were more specific and grounded, using terms like
-  *"insurance"*, *"payroll"*, and *"employee"*.
-
-As a result, the model learned to distinguish **data source styles**, not
-universal fraud patterns — highlighting the need for more diverse datasets
-in future work.
-
+> The model learned to identify *writing styles*
+> (buzzwords vs. specifics), not universal scam traits.
 ---
 
 ### Certainty and Confidence in Results
@@ -164,6 +165,8 @@ meaningful and detectable ways.
 * The dataset is highly imbalanced, with only 4.86% of listings labeled
   as fake. While this had no major impact during exploratory analysis,
   it limited the effectiveness of some downstream tasks such as clustering.
+  To address this, a balanced random sample of 866 real and 866 fake
+  jobs was used in those specific steps.
 
 * While there was an initial concern that fake jobs might cluster into
   different job types than real jobs, clustering analysis showed a high
@@ -182,9 +185,6 @@ meaningful and detectable ways.
 Despite these limitations, the overall patterns are consistent and align
 with previous research on text deception and AI language generation.
 
-Explore our analyses and outputs in:
-[`4_data_analysis`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/4_data_analysis)
-
 ---
 
 ## Conclusion: Beyond Filters, a Battle of AIs
@@ -201,13 +201,11 @@ contributing to a safer digital job market.
 
 ## The Hypatia Circle
 
-**The Hypatia Circle** — *"Reserve your right to think, for even to think
-wrongly is better than not to think at all."* — Hypatia of Alexandria
+> "Reserve your right to think, for even to think wrongly is better than not to
+> think at all." – Hypatia of Alexandria
 
-We are The Hypatia Circle—a dedicated team of six women hailing from
-diverse backgrounds across Africa and the Middle East. United by a
-profound passion for data science and an unwavering belief in the
-transformative power of diverse collaboration, we strive to spark
-meaningful change and innovation in the world of data.
+We are six women from Africa and the Middle East, united by a passion for data
+science and diverse collaboration. We strive to spark innovation and safety in
+digital spaces.
 
 [Learn more about the team!](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/993536d48ceb618e12b753593098cbdb1f7b4df1/collaboration)
