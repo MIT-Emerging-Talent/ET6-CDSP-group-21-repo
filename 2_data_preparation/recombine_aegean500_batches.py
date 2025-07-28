@@ -16,9 +16,7 @@ EXPECTED_BATCH_SUFFIXES = [
 PREFIX = "batch_84_"  # Prefix used when splitting the files
 
 # Output filename for the combined dataset
-OUTPUT_COMBINED_CSV = (
-    "../1_datasets/aegean500_vs_Hypatia500_datasets/aegean500_fakejobs_llmrefined.csv"  # noqa: E501
-)
+OUTPUT_COMBINED_CSV = "../1_datasets/aegean500_vs_Hypatia500_datasets/aegean500_fakejobs_llmrefined.csv"  # noqa: E501
 
 
 # --- Script Logic ---
@@ -45,10 +43,14 @@ def combine_refined_datasets(input_dir, suffixes, prefix, output_path):  # noqa:
                 print(f"  Error loading {filename}: {e}")
                 print(f"  Skipping {filename} due to load error.")
         else:
-            print(f"  File not found: {filename} (might still be processing or pushed)")  # noqa: E501
+            print(
+                f"  File not found: {filename} (might still be processing or pushed)"
+            )  # noqa: E501
 
     if not all_dfs:
-        print("No refined files were found or successfully loaded. Cannot combine.")  # noqa: E501
+        print(
+            "No refined files were found or successfully loaded. Cannot combine."
+        )  # noqa: E501
         print(
             "Please ensure your team has pushed their refined CSVs and paths are correct."  # noqa: E501
         )  # noqa: E501
