@@ -1,2 +1,8 @@
+[tool.ruff]
+line-length = 79
+
 [tool.black]
 line-length = 79
+
+[tool.nbqa.config]
+flake8 = ["--max-line-length=79"]
