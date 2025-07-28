@@ -17,7 +17,7 @@ PREFIX = "batch_84_"  # Prefix used when splitting the files
 
 # Output filename for the combined dataset
 OUTPUT_COMBINED_CSV = (
-    "../1_datasets/aegean500_vs_Hypatia500_datasets/aegean500_fakejobs_llmrefined.csv"  # noqa: E501
+    "../1_datasets/aegean500_vs_hypatia500_datasets/aegean500_fakejobs_llmrefined.csv"  # noqa: E501
 )
 
 
