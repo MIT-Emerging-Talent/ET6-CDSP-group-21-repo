@@ -44,15 +44,18 @@ def combine_refined_datasets(input_dir, suffixes, prefix, output_path):  # noqa:
                 print(f"  Skipping {filename} due to load error.")
         else:
             print(
-                f"  File not found: {filename} (might still be processing or pushed)"
+                "  File not found:"
+                f"{filename}(might still be processing or pushed)"
             )  # noqa: E501
 
     if not all_dfs:
         print(
-            "No refined files were found or successfully loaded. Cannot combine."
+            "No refined files were found or successfully loaded."
+            "Cannot combine."
         )  # noqa: E501
         print(
-            "Please ensure your team has pushed their refined CSVs and paths are correct."  # noqa: E501
+            "Please ensure your team has pushed their refined CSVs"
+            "and paths are correct."  # noqa: E501
         )  # noqa: E501
         return
 
