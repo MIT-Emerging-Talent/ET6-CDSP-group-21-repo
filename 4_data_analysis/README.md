@@ -410,14 +410,6 @@ If this approach failed, we would have tried:
 **Key Insight**: Fake jobs don't target specific fields but often use inflated
 salaries as bait when payment details are provided.
 
-## Key Connections to Research
-
-Our NLP approach directly supports scam detection by:
-
-1. Quantifying linguistic anomalies in fraudulent posts
-2. Establishing measurable differences between human and AI scams
-3. Providing automated detection features for model development
-
 ## **Key Findings:**
 
 ### Supporting Evidence for Research Question  
