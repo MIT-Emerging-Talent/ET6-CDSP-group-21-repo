@@ -60,7 +60,7 @@ git checkout -b your-branch-name
 - `4_data_analysis/`
 - `5_communication_strategy/`
 - `6_final_presentation/`
-- `collaboration/`
+- [`collaboration/`
 ```
 
 ---
@@ -128,16 +128,16 @@ Then open a **Pull Request (PR)** on GitHub.
 
 ## Folder Usage
 
-| Folder                             | Purpose                           |
-| ---------------------------------- | --------------------------------- |
-| [`0_domain_study/`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/0_domain_study)                  | Domain research & context         |
-| [`1_datasets/`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/1_datasets)                      | Raw & cleaned data files          |
-| [`2_data_preparation/`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/2_data_preparation)              | Scripts for cleaning, wrangling   |
-| [`3_data_exploration/`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/3_data_exploration)             | EDA notebooks and insights        |
-| [`4_data_analysis/`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/4_data_analysis)                | POS tagging, classification, etc. |
-| [`5_communication_strategy/`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/5_communication_strategy)        | Storytelling, visuals, summaries  |
-| [`6_final_presentation/`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/6_final_presentation)            | Final slides, project pitch       |
-| [`collaboration/`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/collaboration) | Agreements, group norms, notes    |
+| Folder                            | Purpose                           |
+| ----------------------------------| --------------------------------- |
+| `0_domain_study/`                 | Domain research & context         |
+| `1_datasets/`                     | Raw & cleaned data files          |
+| `2_data_preparation/`             | Scripts for cleaning, wrangling   |
+| `3_data_exploration/`             | EDA notebooks and insights        |
+| `4_data_analysis/`                | POS tagging, classification, etc. |
+| `5_communication_strategy/`       | Storytelling, visuals, summaries  |
+| `6_final_presentation/`           | Final slides, project pitch       |
+| `collaboration/`                  | Agreements, group norms, notes    |
 
 ---
 
