@@ -260,7 +260,7 @@ Combined methods overcome individual limitations:
 Had initial plans to use BERT sentiment but found traditional methods more
 interpretable for our specific need.
 
-### [POS Tagging Analysis](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/1_datasets/cleaned_data/llm_refined_fake_posts2.csv)
+### [POS Tagging Analysis](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/4_data_analysis/pos_tagging.ipynb)
 
 **Objective:**  
 Identify grammatical patterns distinguishing authentic posts from human-written and
