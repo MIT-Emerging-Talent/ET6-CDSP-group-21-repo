@@ -1,8 +1,6 @@
 # Contributing Guidelines
 
 Welcome to the ET6-CDSP Group 21 project!
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=The+Hypatia+Circle)](https://git.io/typing-svg)
 We're excited to collaborate with you.
 
 This guide explains how to set up your environment,

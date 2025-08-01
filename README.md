@@ -222,5 +222,5 @@ digital spaces.
 * [Majd Adel](https://github.com/majdadel20)
 
 We welcome contributions!  
-Please read our [Contributing Guidelines]([CONTRIBUTING.md](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/CONTRIBUTING.md))
- before submitting a pull request.
+Please read our [Contributing Guidelines](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/CONTRIBUTING.md)
+before submitting a pull request.
