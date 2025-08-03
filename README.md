@@ -124,12 +124,6 @@ adjectives and repetitive sentence patterns in fake posts. Meanwhile,
 named entity recognition sometimes flagged company or location names that
 appeared fabricated or oddly placed.
 
-Topic modeling and sentiment analysis (which have been completed) helped
-identify recurring themes such as exaggerated job benefits, promises of
-remote work, and overly positive tones. These emotional or thematic
-markers differ from more neutral or balanced wording found in legitimate
-listings.
-
 ### Visual Evidence
 
 #### Word Frequency Distribution
