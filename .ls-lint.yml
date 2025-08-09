@@ -1,3 +1,5 @@
+version: 1
+
 ls:
   .dir: snake_case
   .*: snake_case
@@ -5,13 +7,21 @@ ls:
   .txt: snake_case | kebab-case
   .yml: snake_case | kebab-case
 
+rules:
+  filename:
+    regex: '^[a-z0-9_]+$'
+    match: true
+
 ignore:
   - .git
   - .github
   - .vscode
+  - "**/.vscode/**"
   - venv
   - .ruff_cache
   - .pytest_cache
   - __pycache__
   - .ls-lint.yml
   - .markdownlint.yml
+  - "**/node_modules"
+  - README.md
