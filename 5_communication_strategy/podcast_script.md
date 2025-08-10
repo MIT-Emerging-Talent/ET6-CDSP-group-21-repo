@@ -51,7 +51,9 @@
 > buzzwords — like 'innovative environment' or 'passionate team player' —  
 > without giving clear job duties."
 
-#### Geehan
+---
+
+### Geehan
 
 > "Exactly. And fake posts? They’re loaded with red flags:  
 >
@@ -108,9 +110,9 @@
 
 ---
 
-#### Geehan
+#### Geehan-
 
- (30 sec)
+(30 sec)
 
 > "And staying ahead means educating ourselves.  
 > If we can train people to notice subtle patterns like
