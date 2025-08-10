@@ -26,7 +26,7 @@ brought to you by Hypatia Circle."
 "Scammers have always existed — but now, they've got AI on their side.  
 We're talking about job posts written by ChatGPT. Posts that sound real. Look real.
 Even feel professional. But they're not.  
-As students — especially new grads — we're vulnerable..."
+As students — especially new grads — we're vulnerable.."
 
 ### 📊 Analysis Findings - Alaa & Geehan (1 min 40 sec)  
 
