@@ -183,6 +183,30 @@ with previous research on text deception and AI language generation.
 
 ---
 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Communicating+results)](https://git.io/typing-svg)
+
+We target **students and recent graduates** who may not recognize advanced
+job scams — especially those powered by AI.
+
+**Goals:**
+
+* Show how to spot real, fake, and AI-generated postings.
+* Provide tools, checklists, and shareable resources.
+
+**Channels & Artefacts:**
+
+* **Podcast** — real scam stories + tips.
+* **Comic Book** — visual scam scenarios.
+* **Website** — hub for episodes, visuals, tools, and data.
+
+**Engagement:**
+
+* Share via **LinkedIn**, student networks, career centers.
+
+🔗 [Website link](https://fabulous-macaron-940015.netlify.app/)
+
+---
+
 ## Conclusion: Beyond Filters, a Battle of AIs
 
 Scam detection is no longer just about spotting typos. It’s a fundamental
