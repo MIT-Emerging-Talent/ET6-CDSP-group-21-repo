@@ -18,7 +18,7 @@
 >
 > At first glance, nothing seemed suspicious. But something… felt off."  
 >
-> I’m Alaa, and you’re listening to *Scam Alert: Job Hunting in the Age of  
+> I’m Alaa, and you’re listening to *Job Hunting in the Age of  
 > AI*, brought to you by Hypatia Circle.  
 
 ---
@@ -40,21 +40,24 @@
 
 (1 min)  
 
-> "MJ noticed a few small red flags — a job description that was vague for  
-> such a technical role, and requirements that felt too easy for the salary  
-> offered.  
+> MJ  noticed a few red flags, some of which were that the  job description
+> was vague and generic, with no specific information related to the role,
+> and the requirements felt too easy for the salary offered. However,
+> like many fresh graduates, she didn’t want to lose a potential opportunity,
+> so she applied anyway.
 >
-> But like a lot of fresh graduates, she didn’t want to lose a potential  
-> opportunity.  
+> Then a recruiter called her and said that she’ll have to do a trial period
+> before being officially part of the team, which was normal, but
+> the odd thing was that she’ll have to pay them to be part of it.
 >
-> Then came the request for an upfront payment during a so-called ‘trial  
-> period.’ That’s when her instincts kicked in.  
+> That’s when her instincts kicked in, and she decided to investigate.  
 >
-> She dug deeper, checked the company’s registration, ran the ad through a  
-> scam-detection tool — trust score: 56%.  
+> She dug deeper, checked the company’s registration to see if it’s a legitimate
+> company, ran the ad through a scam-detection tool, and guess what,  
+> the trust score was only 56%.
 >
-> She walked away. And just minutes later, she got a pushy phone call asking  
-> her to pay for training immediately."  
+> She walked away. And just minutes later, she got a pushy phone call asking her
+> to pay for training immediately."
 
 ---
 
