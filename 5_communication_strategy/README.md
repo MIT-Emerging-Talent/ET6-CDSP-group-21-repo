@@ -52,7 +52,6 @@ We propose creating practical assets to support our strategy:
 
 - **Podcast & Storytelling:** Share a narrative of a job seeker encountering fake
    postings.  
-- **Comic Book:** Visual storytelling highlighting common job scam scenarios.  
 - **Platform Integration:** Centralize all communication artefacts for easy access.
 
 ---
@@ -64,24 +63,7 @@ We propose creating practical assets to support our strategy:
 |-----------------|---------------------------------------------------|----------------------------------------------|
 | LinkedIn        | Podcast episodes, Comic Book previews, Project updates | Professional outreach & networking           |
 | Project Website | Full Comic Book, complete podcast series, interactive tools, downloadable resources | Central hub for all materials                 |
-<!-- markdownlint-enable MD013 -->
-
----
-
-## ✨ 4. Design & Engagement Tactics
-
-- **Interactive elements:** polls, quizzes, “spot the fake job” challenges  
-- **Visual cues:** emojis, icons, subtle animations in Markdown (`:sparkles:`)  
-- **Highlight key info:** use bold and callouts for important points  
-
-## 🔗 5. Implementation Notes
-
-1. Start by creating templates for LinkedIn posts and website visuals with clear
-    hierarchy.
-2. Set up Google Form for user reporting and integrate results on platform dashboard.
-3. Produce short podcast episodes with voice echo and narrative storytelling.  
-4. Develop the Comic Book and host it on the website.  
-5. Regularly update README with any new strategies or tools introduced.  
+<!-- markdownlint-enable MD013 -->  
 
 ---
 
