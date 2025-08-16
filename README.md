@@ -181,6 +181,7 @@ with previous research on text deception and AI language generation.
 ---
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Communicating+results)](https://git.io/typing-svg)
+
 Our findings are aimed at a specific audience: students and recent
 graduates who may not recognize advanced, AI-powered job scams.
 
