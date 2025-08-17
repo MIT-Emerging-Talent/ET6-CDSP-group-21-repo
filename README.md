@@ -43,44 +43,41 @@ AI-generated scams differ linguistically from human-written real jobs.
 We also refined each fake post using LLMs to create realistic yet
 deceptive examples.
 
-## Methodology
+## Data & Methodology
 
-We used a single dataset sourced from the "Fake JobPostings" dataset
-available on Kaggle. This dataset contains 17,880 job postings,
- of which only 866 are labeled as fake.
-To enhance the realism of these fraudulent listings, we refined each one
-using a large language model (LLM) to mimic legitimate language patterns
-while preserving deceptive cues.
+### Datasets Used
 
-We acknowledge that this dataset is highly imbalanced, with 95.14% of
-entries labeled as real. While this did not affect our exploratory
-analysis, it posed challenges for clustering tasks. To mitigate this,
-we created a balanced sample consisting of 866 real and 866 fake job
-listings.
+Our analysis is based on the **Fake Job Postings** dataset from Kaggle,
+which contains 17,880 job postings. To enhance the realism of fraudulent
+listings, we refined each one using a Large Language Model (LLM) like
+Gemini to mimic legitimate language patterns while preserving deceptive
+cues.
 
-All data analysis and exploration were performed on this enriched dataset.
+For a full overview of our data sources, their collection, and
+limitations, please see the [**`1_datasets/README.md`**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/1_datasets)
 
----
+### Data Processing Pipeline
 
-## Data Processing Pipeline
+Our robust data processing pipeline prepares all the data needed for
+our experiment. It involves:
 
-Our robust pipeline prepares all the data needed for the experiment. It
-involves:
+* **Extracting Fake Jobs**: Selecting initial fake job listings.
+* **AI Refining Fake Jobs**: Using LLMs (like Gemini) to make fake jobs
+  super realistic.
+* **Cleaning Real Jobs**: Standardizing authentic job postings.
 
-* **Extracting Fake Jobs:** Selecting initial fake job listings.
-* **AI Refining Fake Jobs:** Using LLMs (like Gemini) to make fake jobs
-  super realistic.
-* **Cleaning Real Jobs:** Standardizing authentic job postings.
+The scripts for this entire process, from data cleaning to refinement,
+are located in the [**`2_data_preparation`**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/2_data_preparation).
 
-All data is in the
-[`1_datasets`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/1_datasets)
-folder. Scripts are in
-[`2_data_preparation`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/2_data_preparation)
-for full transparency.
-Explore our data exploration notebooks:
-[`3_data_exploration`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/3_data_exploration)
-Explore our analyses and outputs in:
-[`4_data_analysis`](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/4_data_analysis)
+### Exploratory Data Analysis (EDA)
+
+Before our main analysis, we performed a comprehensive EDA to understand
+the dataset's characteristics and identify key patterns. This phase
+helped us spot critical red flags like missing data and linguistic cues
+that would inform our modeling approach.
+
+You can explore our data exploration notebooks and findings in the
+[**`3_data_exploration`**](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/3_data_exploration)
 
 ---
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Data+Analysis)](https://git.io/typing-svg)
@@ -185,25 +182,16 @@ with previous research on text deception and AI language generation.
 
 [![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Communicating+results)](https://git.io/typing-svg)
 
-We target **students and recent graduates** who may not recognize advanced
-job scams — especially those powered by AI.
+Our findings are aimed at a specific audience: students and recent
+graduates who may not recognize advanced, AI-powered job scams.
 
-**Goals:**
-
-* Show how to spot real, fake, and AI-generated postings.
-* Provide tools, checklists, and shareable resources.
-
-**Channels & Artefacts:**
-
-* **Podcast** — real scam stories + tips.
-* **Comic Book** — visual scam scenarios.
-* **Website** — hub for episodes, visuals, tools, and data.
-
-**Engagement:**
-
-* Share via **LinkedIn**, student networks, career centers.
-
-🔗 [Website link](https://fabulous-macaron-940015.netlify.app/)
+* **Our Goal**: To show how to spot real, fake, and AI-generated
+    postings and to provide tools and shareable resources.
+* **Our Artefact**: A podcast that features real scam stories and
+    practical tips. The podcast will be uploaded to our website,
+    shared on LinkedIn, and emailed to universities.
+* **Our Hub**: A website that serves as a central hub for all our
+    findings, including podcast episodes, visuals, and our data.
 
 ---
 
@@ -223,9 +211,8 @@ contributing to a safer digital job market.
 
 > "Reserve your right to think, for even to think wrongly is better than not to
 > think at all." – Hypatia of Alexandria
-
-We are six women from Africa and the Middle East, united by a passion for data
-science and diverse collaboration. We strive to spark innovation and safety in
+> We are six women from Africa and the Middle East, united by a passion for data
+> science and diverse collaboration. We strive to spark innovation and safety in
 digital spaces.
 
 [Learn more about the team!](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/993536d48ceb618e12b753593098cbdb1f7b4df1/collaboration)
