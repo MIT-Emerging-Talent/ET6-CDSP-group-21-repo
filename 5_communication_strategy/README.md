@@ -62,8 +62,9 @@ We propose creating practical assets to support our strategy:
 <!-- markdownlint-disable MD013 -->
 | Channel         | Content Type                                      | Purpose                                      |
 |-----------------|---------------------------------------------------|----------------------------------------------|
-| LinkedIn        | Podcast episodes, Comic Book previews, Project updates | Professional outreach & networking           |
-| Project Website | Full Comic Book, complete podcast series, interactive tools, downloadable resources | Central hub for all materials                 |
+| LinkedIn        | Project updates through sharing our repo/website. | Professional outreach & networking.           |
+| Project Website | Textual information regarding the project, a podcast, and interactive visuals. | Central hub for all materials.                 |
+| Universities | An email covering a broad overview of our project and link to our website. | Best way to insure our findings reach university students and fresh graduates. |
 <!-- markdownlint-enable MD013 -->  
 
 ---
