@@ -1,4 +1,4 @@
-# 📢 Communication Strategy for Job Posting Project
+# Communication Strategy for Job Posting Project
 
 Welcome to the **Communication Strategy** documentation for our project on
 distinguishing between real, fake, and AI-generated job postings. This guide
@@ -7,7 +7,7 @@ our findings.
 
 ---
 
-## 🎯 1. Target Audience
+## 1. Target Audience
 
 Our main audience segments are **students who are looking for jobs**,
  especially **university students or recent graduates**.
@@ -21,10 +21,11 @@ Our main audience segments are **students who are looking for jobs**,
 
 **How to reach them:**  
 
-- Through a dedicated **website** that hosts the podcast, videos, and visual
-   results (such as graphs).
-- Sharing links via student networks, social media, and possibly university
-   career centers (LinkedIn).
+- Through the [**website**](https://detect-job-posts-intheageof-ai.netlify.app/)
+which we built as a way to communicate our findings. It hosts textual
+information, podcast, and visual results (such as graphs).
+- Sharing the website link via student networks, social media, and possibly university
+career centers (LinkedIn).
 
 **What they should learn:**  
 
@@ -46,7 +47,7 @@ Our main audience segments are **students who are looking for jobs**,
 
 ---
 
-## 🛠 2. Artefacts
+## 2. Artefacts
 
 We propose creating practical assets to support our strategy:  
 
@@ -56,7 +57,7 @@ We propose creating practical assets to support our strategy:
 
 ---
 
-## 📈 3. Communication Channels
+## 3. Communication Channels
 
 <!-- markdownlint-disable MD013 -->
 | Channel         | Content Type                                      | Purpose                                      |
@@ -67,5 +68,5 @@ We propose creating practical assets to support our strategy:
 
 ---
 
-> 🎉 **Goal:** Make every user interaction informative, engaging, and actionable.
+> **Goal:** Make every user interaction informative, engaging, and actionable.
 > Keep content interactive, visually appealing, and centralized for maximum impact.
