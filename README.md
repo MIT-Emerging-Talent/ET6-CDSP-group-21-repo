@@ -218,33 +218,51 @@ digital spaces.
 
 [Learn more about the team!](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/993536d48ceb618e12b753593098cbdb1f7b4df1/collaboration)
 
-### Team Members  
+---
+
+### Team Members
 
 <table>
   <tr>
     <td align="center">
-      <img src="https://github.com/Elocodes.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
-      <a href="https://github.com/Elocodes">Elocodes</a>
+      <a href="https://github.com/Elocodes">
+        <img src="https://github.com/Elocodes.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+        Elocodes
+      </a>
     </td>
     <td align="center">
-      <img src="https://github.com/AlaaElgozouli.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
-      <a href="https://github.com/AlaaElgozouli">Alaa Elgozouli</a>
+      <a href="https://github.com/Alaa-Elgozouli">
+        <img src="https://github.com/Alaa-Elgozouli.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+        Alaa Elgozouli
+      </a>
     </td>
     <td align="center">
-      <img src="https://github.com/AseelOmer.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
-      <a href="https://github.com/AseelOmer">Aseel Omer</a>
+      <a href="https://github.com/AseelOmer">
+        <img src="https://github.com/AseelOmer.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+        Aseel Omer
+      </a>
     </td>
     <td align="center">
-      <img src="https://github.com/Rouaa93.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
-      <a href="https://github.com/Rouaa93">Rouaa93</a>
+      <a href="https://github.com/Rouaa93">
+        <img src="https://github.com/Rouaa93.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+        Rouaa93
+      </a>
     </td>
     <td align="center">
-      <img src="https://github.com/GeehanAli.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
-      <a href="https://github.com/GeehanAli">Geehan Ali</a>
+      <a href="https://github.com/GeehanAli">
+        <img src="https://github.com/GeehanAli.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+        Geehan Ali
+      </a>
     </td>
     <td align="center">
-      <img src="https://github.com/MajdAdel.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
-      <a href="https://github.com/MajdAdel">Majd Adel</a>
+      <a href="https://github.com/majdadel20">
+        <img src="https://github.com/majdadel20.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+        Majd Adel
+      </a>
     </td>
   </tr>
 </table>
+
+We welcome contributions!  
+Please read our [Contributing Guidelines](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/CONTRIBUTING.md)
+before submitting a pull request.
