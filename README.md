@@ -192,6 +192,7 @@ graduates who may not recognize advanced, AI-powered job scams.
     shared on LinkedIn, and emailed to universities.
 * **Our Hub**: A website that serves as a central hub for all our
     findings, including podcast episodes, visuals, and our data.
+    [Website](https://detect-job-posts-intheageof-ai.netlify.app/)
 
 ---
 
