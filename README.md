@@ -267,3 +267,11 @@ digital spaces.
 We welcome contributions!  
 Please read our [Contributing Guidelines](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/CONTRIBUTING.md)
 before submitting a pull request.
+
+<!-- markdownlint-disable MD033 -->
+
+<table>
+  <!-- your team members table -->
+</table>
+
+<!-- markdownlint-enable MD033 -->
