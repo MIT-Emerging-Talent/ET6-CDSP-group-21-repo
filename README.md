@@ -212,8 +212,9 @@ contributing to a safer digital job market.
 
 > "Reserve your right to think, for even to think wrongly is better than not to
 > think at all." – Hypatia of Alexandria
-> We are six women from Africa and the Middle East, united by a passion for data
-> science and diverse collaboration. We strive to spark innovation and safety in
+
+We are six women from Africa and the Middle East, united by a passion for data
+science and diverse collaboration. We strive to spark innovation and safety in
 digital spaces.
 
 [Learn more about the team!](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/993536d48ceb618e12b753593098cbdb1f7b4df1/collaboration)
