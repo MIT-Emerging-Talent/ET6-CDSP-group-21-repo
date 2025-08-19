@@ -218,15 +218,33 @@ digital spaces.
 
 [Learn more about the team!](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/993536d48ceb618e12b753593098cbdb1f7b4df1/collaboration)
 
-### Team Members
+### Team Members  
 
-* [Elocodes](https://github.com/Elocodes)
-* [Alaa Elgozouli](https://github.com/Alaa-Elgozouli)
-* [Aseel Omer](https://github.com/AseelOmer)
-* [Rouaa93](https://github.com/Rouaa93)
-* [Geehan Ali](https://github.com/GeehanAli)
-* [Majd Adel](https://github.com/majdadel20)
-
-We welcome contributions!  
-Please read our [Contributing Guidelines](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/blob/main/CONTRIBUTING.md)
-before submitting a pull request.
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/Elocodes.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+      <a href="https://github.com/Elocodes">Elocodes</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/AlaaElgozouli.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+      <a href="https://github.com/AlaaElgozouli">Alaa Elgozouli</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/AseelOmer.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+      <a href="https://github.com/AseelOmer">Aseel Omer</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/Rouaa93.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+      <a href="https://github.com/Rouaa93">Rouaa93</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/GeehanAli.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+      <a href="https://github.com/GeehanAli">Geehan Ali</a>
+    </td>
+    <td align="center">
+      <img src="https://github.com/MajdAdel.png" width="80" height="80" style="border-radius: 50%; object-fit: cover;"><br>
+      <a href="https://github.com/MajdAdel">Majd Adel</a>
+    </td>
+  </tr>
+</table>
