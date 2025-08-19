@@ -29,6 +29,19 @@ We've conducted in-depth research, analyzing thousands of real and fake job
 >
 >
 
+**To further this work, we have also built a live application as part of a human
+study to understand how individuals detect these fraudulent postings.**
+ This interactive platform is a crucial component of our research, designed to
+  gather real-time human insights to complement our findings. We are specifically
+   recruiting students and recent graduates to participate, and we would be grateful
+    if you could help us share this opportunity. Your students can access the
+     study and contribute to this important work here: [Job Board Human Study App](https://job-board-app-phi.vercel.app/)
+
+>
+>
+>
+>
+
 **Why this matter?** This issue matters deeply because scams are increasingly targeting
  students, often in subtle and deceptive ways. After hearing firsthand accounts
   from peers who lost money or personal data, we discovered that a staggering
@@ -55,7 +68,7 @@ Through our website, students can access clear, research-backed guidance to help
 >
 
 Want to make a quick impact? Share our free resource with your department to help
- protect students from scams. You can find everything here: [[Websit Link](<https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo/tree/main/5_communication_strategy/website>)],
+ protect students from scams. You can find everything here: [[Websit Link](https://detect-job-posts-intheageof-ai.netlify.app/)],
   and feel
   free to stay in touch if you'd like to collaborate or customize materials.
 
@@ -68,4 +81,7 @@ Warm regards,
 
 ***Majd Abualsoud***
 
- [[LinkedIn](https://www.linkedin.com/in/majd-abualsoud/)] | [[GitHub Repo](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo)]
+ [[LinkedIn](https://www.linkedin.com/in/majd-abualsoud/)] |
+ [[Our Website](https://detect-job-posts-intheageof-ai.netlify.app/)] |
+ [[App](https://job-board-app-phi.vercel.app/)] |
+ [[GitHub Repo](https://github.com/MIT-Emerging-Talent/ET6-CDSP-group-21-repo)]
