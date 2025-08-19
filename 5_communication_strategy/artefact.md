@@ -4,7 +4,7 @@
 
 **Access the Live Application Here:**
 
-[**Website**](https://job-board-app-phi.vercel.app)
+[**WebApp**](https://job-board-app-phi.vercel.app)
 
 This application is the human-centric component of a comprehensive research
 study designed to understand how individuals detect fraudulent job postings
@@ -80,7 +80,7 @@ community of job seekers can be found.
 
 Curious to see it in action? Watch a quick demo of the app's functionality:
 
-[![Job Board App Demo Video](https://img.youtube.com/vi/ve9jp4VfPiU/0.jpg)](https://www.youtube.com/watch?v=ve9jp4VfPiU)
+[![Job Board App Demo Video](https://img.youtube.com/vi/HbNc0zf3NSo/0.jpg)](https://www.youtube.com/watch?v=HbNc0zf3NSo)
 
 ## How to Participate
 
