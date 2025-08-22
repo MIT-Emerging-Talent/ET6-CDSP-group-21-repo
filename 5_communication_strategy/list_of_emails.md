@@ -10,7 +10,7 @@ Al-Azhar University of Gaza | Palestine |  <irunit@alazhar.edu.ps>|
 Islamic University of Gaza | Palestine | <webmaster@iugaza.edu.ps> -- <public@iugaza.edu.ps>|
 Al- Najah University | Palestine | <info@najah.edu>  --  <pr@najah.edu>|
 Birzeit University | Palestine | pr@birzeit.edu-- <external.relations@birzeit.edu>|
-The Future University | Egypt | <info@fu.edu.sd>|
+The Future University | Sudan | <info@fu.edu.sd>|
 UWaterloo | Canada | <media.relations@uwaterloo.ca>  -- <alumni@uwaterloo.ca>|
 McMaster University | Canada | <donovam@mcmaster.ca> - <lawsoa7@mcmaster.ca>|
 Qatar University | Qatar | <qumcc@qu.edu.qa>|
@@ -20,3 +20,5 @@ University of SUSSEX | UK | <information@sussex.ac.uk>|
 Stanford University | USA | <mediarelations@stanford.edu>|
 University of Nigeria, Nsukka | Nigeria  |<Kamoru.usman@unn.edu.ng>|
 University of Gezira | Sudan  |<Info@uofg.edu.sd>|
+ University of Khartoum| Sudan| <academic@uofk.edu>|
+Damascus University| Syria | <info.sci@damascusuniversity.edu.sy>|

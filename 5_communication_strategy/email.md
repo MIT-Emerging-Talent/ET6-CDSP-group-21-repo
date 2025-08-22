@@ -18,38 +18,8 @@ Over the last three months, my team and I have focused on a critical issue: the
 >
 
 We've conducted in-depth research, analyzing thousands of real and fake job
- postings to understand the patterns and red flags. We've compiled our findings
-  on this website [embed the link of the website]. We believe that our findings
-   are essential for students and recent graduates who are navigating today's job
-    market, as these individuals are the most likely targets for job scams, making
-     them the most vulnerable category.
-
->
->
->
->
-
-**To further this work, we have also built a live application as part of a human
-study to understand how individuals detect these fraudulent postings.**
- This interactive platform is a crucial component of our research, designed to
-  gather real-time human insights to complement our findings. We are specifically
-   recruiting students and recent graduates to participate, and we would be grateful
-    if you could help us share this opportunity. Your students can access the
-     study and contribute to this important work here: [Job Board Human Study App](https://job-board-app-phi.vercel.app/)
-
->
->
->
->
-
-**Why this matter?** This issue matters deeply because scams are increasingly targeting
- students, often in subtle and deceptive ways. After hearing firsthand accounts
-  from peers who lost money or personal data, we discovered that a staggering
-   78% of scam victims don’t report their experiences due to embarrassment .
-   Meanwhile, fake “remote work” postings have surged by 300% since 2022 , making
-    platforms like LinkedIn, Handshake, and others daily minefields for unsuspecting
-     students. These alarming trends highlight the urgent need for awareness and
-     proactive protection.
+ postings to understand the patterns and red flags. **We've compiled our findings
+  on this website**: [Our Website](https://detect-job-posts-intheageof-ai.netlify.app/)
 
 >
 >
@@ -58,24 +28,52 @@ study to understand how individuals detect these fraudulent postings.**
 
 Through our website, students can access clear, research-backed guidance to help
  them spot red flags in job postings, recognize common scam tactics including
-  AI-generated ones, and understand how to verify employer legitimacy. While we
-   haven’t built a tool, we’ve analyzed the data and distilled practical advice
-    to help students stay safe and informed.
+ AI-generated ones, and understand how to verify employer legitimacy.
+ While we haven’t built a tool, we’ve analyzed the data and distilled practical
+  advice to help students stay safe and informed.
 
 >
 >
 >
 >
 
-Want to make a quick impact? Share our free resource with your department to help
- protect students from scams. You can find everything here: [[Websit Link](https://detect-job-posts-intheageof-ai.netlify.app/)],
-  and feel
-  free to stay in touch if you'd like to collaborate or customize materials.
+**As part of this work, we have also built a live application as part of a human
+ study to understand how individuals detect these fraudulent postings**. This
+  interactive platform is a crucial component of our research, designed to gather
+   real-time human insights to complement our findings. We are specifically
+    recruiting students and recent graduates to participate, and we would be grateful
+     if you could help us share this opportunity. Your students can access the study
+      and contribute to this important work here: [Job Board Human Study App](https://job-board-app-phi.vercel.app/)
 
 >
+>
+>
+>
 
-**Thank you for considering this partnership. Together, we can create a safer
-job market for emerging talent.**  
+**Why this matters?** This issue matters deeply because scams are increasingly
+ targeting students, often in subtle and deceptive ways. After hearing firsthand
+  accounts from peers who lost money or personal data, we discovered that a
+  staggering 78% of scam victims don’t report their experiences due to embarrassment.
+  Meanwhile, fake “remote work” postings have surged by 300% since 2022, making
+   platforms like LinkedIn, Handshake, and others daily minefields for unsuspecting
+    students. These alarming trends highlight the urgent need for awareness and
+     proactive protection.
+
+>
+>
+>
+>
+
+**Want to make a quick impact?** Share our free resource with your department to
+ help protect students from scams. You can find everything here: Our Website, and
+  feel free to stay in touch if you'd like to collaborate or customize materials.
+
+>
+>
+>
+
+***Thank you for considering this partnership. Together, we can create a safer job
+ market for emerging talent.***
 
 Warm regards,
 
