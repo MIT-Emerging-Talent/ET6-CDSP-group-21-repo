@@ -1,5 +1,14 @@
 # Domain Research
 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Research+Question)](https://git.io/typing-svg)
+
+**Can ~~*Humans~~ and Classifier Models still Distinguish between Legitimate and
+Fraudulent Job Postings when the Scam Text is Written by Advanced AI Models?**
+
+>Humans part will be investigated in ELO2.
+
+---
+
 ## Event
 
 In the modern time, the evolution of technology has transformed the way people
@@ -56,9 +65,9 @@ At a structural level, one of the key reasons online job scams are so effective
 is that fraudulent processes often mimic the legitimate structure of real hiring
 systems. Across industries and regions, job applications tend to follow a
 standardized format. Most job seekers are familiar with being asked for personal
-details such as **_full name_**, **_address, date of birth, contact information_**,
-and even **_bank details_** in some cases. In many cases,
-**_background checks_** and **_document verification_** are also expected steps.
+details such as ***full name***, ***address, date of birth, contact information***,
+and even ***bank details*** in some cases. In many cases,
+***background checks*** and ***document verification*** are also expected steps.
 These practices are so deeply rooted in professional norms that applicants rarely
 question them, which makes it easier for scammers to
 blend in without raising suspicion.
@@ -95,10 +104,10 @@ ecosystem alive and difficult to disrupt.
 ## Conclusion
 
 By mapping the user journey, we can better understand how people navigate scam
-encounters. When users say, “ _**What would I lose? I’ll apply and see how this
-goes,**_ ” it reflects a sense of low-risk experimentation driven by desperation
+encounters. When users say, “ ***What would I lose? I’ll apply and see how this
+goes,*** ” it reflects a sense of low-risk experimentation driven by desperation
 or hope. Internally, they may think,
-“ _**I can’t help but set high hopes incase I get the offer,**_ ”
+“ ***I can’t help but set high hopes incase I get the offer,*** ”
 revealing the emotional vulnerability that scammers exploit. Behaviorally, users
 often proceed to apply despite some awareness of scams. Emotionally, the journey
 is intense, initial excitement when
@@ -120,4 +129,4 @@ empower users earlier in the process.
 - NLP ( Natural Language Processing ).
 - Human-Machine interaction.
 - Machine-Machine interaction.
-- LLMs.
+- Classifiers.
