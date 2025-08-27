@@ -196,6 +196,14 @@ graduates who may not recognize advanced, AI-powered job scams.
 
 ---
 
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&pause=1000&color=CF1F4E&width=435&lines=Final+Presentation
+)](https://git.io/typing-svg)
+
+Our final presentation summarizes the research problem, methodology, key findings, and the impact of our work on detecting fake jobs in the era of AI.  
+[Final Presentation slides](https://docs.google.com/presentation/d/1BedGqVdIrTtSj5zWDNFzkGUgHdJ3F9tY/edit?slide=id.p7#slide=id.p7)
+
+---
+
 ## Conclusion: Beyond Filters, a Battle of AIs
 
 Scam detection is no longer just about spotting typos. It’s a fundamental
