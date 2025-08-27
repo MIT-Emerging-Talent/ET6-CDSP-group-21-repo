@@ -54,7 +54,8 @@ We propose creating practical assets to support our strategy:
 - **Podcast & Storytelling:** Share a narrative of a job seeker encountering fake
    postings.  
 - **Comic Book:** A visual guide that compares real, fake, and AI-generated
-  jobs. It is designed for quick learning and easy sharing among students.  - [Comic Book](C:\Users\DELL\ET6-CDSP-group-21-repo\5_communication_strategy\comicbook)
+  jobs. It is designed for quick learning and easy sharing among students.
+  [Comic Book](:\Users\DELL\ET6-CDSP-group-21-repo\5_communication_strategy\comicbook)
 - **Platform Integration:** Centralize all communication artefacts for easy access.
   [website](https://detect-job-posts-intheageof-ai.netlify.app/)
 
