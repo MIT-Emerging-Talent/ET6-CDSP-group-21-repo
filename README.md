@@ -196,7 +196,7 @@ graduates who may not recognize advanced, AI-powered job scams.
 * **Comic Book:** A short, visual guide that compares real vs. fake vs.
 
   AI-generated jobs. Designed for quick learning and easy sharing.
-  [Comic Book](C:\Users\DELL\ET6-CDSP-group-21-repo\5_communication_strategy\comicbook)
+  [Comic Book](/5_communication_strategy/comicbook/)
   
 **Our Hub:** A website that serves as a central home for our findings,
 including podcast episodes, visuals, and our data. [Project Website](https://detect-job-posts-intheageof-ai.netlify.app/)
