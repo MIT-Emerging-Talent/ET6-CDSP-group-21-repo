@@ -187,12 +187,19 @@ graduates who may not recognize advanced, AI-powered job scams.
 
 * **Our Goal**: To show how to spot real, fake, and AI-generated
     postings and to provide tools and shareable resources.
-* **Our Artefact**: A podcast that features real scam stories and
-    practical tips. The podcast will be uploaded to our website,
-    shared on LinkedIn, and emailed to universities.
-* **Our Hub**: A website that serves as a central hub for all our
-    findings, including podcast episodes, visuals, and our data.
-**[Our Project Website](https://detect-job-posts-intheageof-ai.netlify.app/)**
+
+**Our Artefacts:**
+
+* **Podcast:** Real scam stories + practical tips. Published on our website,
+  shared on LinkedIn, and emailed to universities.
+
+* **Comic Book:** A short, visual guide that compares real vs. fake vs.
+
+  AI-generated jobs. Designed for quick learning and easy sharing.
+  [Comic Book](/5_communication_strategy/comicbook/)
+  
+**Our Hub:** A website that serves as a central home for our findings,
+including podcast episodes, visuals, and our data. [Project Website](https://detect-job-posts-intheageof-ai.netlify.app/)
 
 ---
 
